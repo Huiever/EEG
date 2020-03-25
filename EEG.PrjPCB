@@ -1006,9 +1006,9 @@ L17=WNNNNNNNWNNNWWWWN
 [Annotate]
 SortOrder=3
 SortLocation=0
-MatchParameter1=Library Reference
+MatchParameter1=Comment
 MatchStrictly1=1
-MatchParameter2=Comment
+MatchParameter2=Library Reference
 MatchStrictly2=1
 PhysicalNamingFormat=$Component_$RoomName
 GlobalIndexSortOrder=3
