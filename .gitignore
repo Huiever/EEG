@@ -1,3 +1,6 @@
 /__Previews/*
 /History/*
 *.log
+/Project Logs for EEG/*
+/Project Outputs for EEG/*
+*.PrjPCBStructure
