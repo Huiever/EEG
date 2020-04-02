@@ -1,0 +1,10 @@
+Output: Test Point Report
+Type  : Test Points
+From  : Project [EEG.PrjPCB]
+   Generated File[Fabrication Testpoint Report for EEG.ipc]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 13:27:59 On 2020/4/2 ÐÇÆÚËÄ

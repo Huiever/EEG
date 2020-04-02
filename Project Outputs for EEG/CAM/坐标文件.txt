@@ -1,0 +1,70 @@
+Altium Designer Pick and Place Locations
+C:\Users\Huiever\Desktop\EEG\Project Outputs for EEG\Pick Place for EEG.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       02/04/20
+Time:       13:27
+Revision:   4917e1f6deebcc293e5fb6ea7d606e2b9dddc05c
+Variant:    No variations
+Units used: mil
+
+Designator Comment      Layer    Footprint        Center-X(mil) Center-Y(mil) Rotation 
+U5         SPX5205      TopLayer SPX5205          1739.016      414.921       180      
+U4         ADS1299      TopLayer ADS1299          604.843       860.551       0        
+U3         TPS72325     TopLayer tps723/732/60403 1666.181      705.970       360      
+U2         TPS73225     TopLayer tps723/732/60403 1666.181      997.020       0        
+U1         TPS60403     TopLayer tps723/732/60403 1666.181      1288.070      360      
+R7         Res1         TopLayer 0603-1           1332.000      421.849       270      
+R6         Res1         TopLayer 0603-1           910.000       781.536       270      
+R5         Res1         TopLayer 0603-1           905.788       1041.653      270      
+R3         Res1         TopLayer 0603-1           474.218       1294.999      90       
+R2         Res1         TopLayer 0603-1           387.062       1294.999      90       
+R1         Res1         TopLayer 0603-1           648.531       1294.999      90       
+""         "Header 4X2" TopLayer HDR2X4           1300.000      860.000       270      
+""         "Header 10"  TopLayer HDR1X10          265.000       860.000       90       
+""         "Header 8"   TopLayer HDR1X8           1030.000      758.818       270      
+L4         Inductor     TopLayer L-SMD-7          2215.000      498.818       360      
+L3         Inductor     TopLayer L-SMD-7          2215.000      858.424       0        
+L2         Inductor     TopLayer L-SMD-7          2215.000      1218.031      0        
+L1         Inductor     TopLayer L-SMD-7          1175.000      1371.968      0        
+C40        Cap          TopLayer 0603-1           1423.000      421.850       90       
+C39        Cap          TopLayer 0603-1           1514.000      421.849       90       
+C38        Cap          TopLayer 0603-1           1605.000      421.849       90       
+C37        Cap          TopLayer 0603-1           1875.000      421.850       90       
+C36        Cap          TopLayer 0603-1           1960.000      421.849       90       
+C35        Cap          TopLayer 0603-1           1150.000      421.849       90       
+C34        Cap          TopLayer 0603-1           1241.000      421.849       90       
+C33        Cap          TopLayer 0603-1           2495.000      614.074       360      
+C32        Cap          TopLayer 0603-1           2495.000      528.306       360      
+C31        Cap          TopLayer 0603-1           2495.000      1022.164      360      
+C30        Cap          TopLayer 0603-1           2495.000      934.842       360      
+C29        Cap          TopLayer 0603-1           2460.000      818.307       270      
+C28        Cap          TopLayer 0603-1           2530.000      818.306       270      
+C27        Cap          TopLayer 0603-1           648.776       421.850       90       
+C26        "Cap Pol2"   TopLayer 0603-1           823.252       421.850       270      
+C25        Cap          TopLayer 0603-1           387.062       421.850       90       
+C24        Cap          TopLayer 0603-1           474.300       421.850       90       
+C23        Cap          TopLayer 0603-1           739.999       420.001       90       
+C22        Cap          TopLayer 0603-1           561.538       421.850       90       
+C21        Cap          TopLayer 0603-1           1790.000      712.899       270      
+C20        "Cap Pol1"   TopLayer 0603-1           1535.000      712.899       270      
+C19        "Cap Pol1"   TopLayer 0603-1           2495.000      699.842       180      
+C18        Cap          TopLayer 0603-1           1960.000      712.899       270      
+C17        "Cap Pol1"   TopLayer 0603-1           1875.000      712.899       270      
+C16        Cap          TopLayer 0603-1           1960.000      1003.949      90       
+C15        "Cap Pol1"   TopLayer 0603-1           2495.000      1109.488      360      
+C14        "Cap Pol1"   TopLayer 0603-1           1875.000      1003.949      270      
+C13        Cap          TopLayer 0603-1           1790.000      1003.950      270      
+C11        Cap          TopLayer 0603-1           1535.000      1003.949      270      
+C10        "Cap Pol1"   TopLayer 0603-1           2495.000      1196.810      180      
+C9         Cap          TopLayer 0603-1           1960.000      1294.999      90       
+C8         "Cap Pol1"   TopLayer 0603-1           1875.000      1294.999      90       
+C7         Cap          TopLayer 0603-1           1535.000      1294.999      90       
+C6         "Cap Pol1"   TopLayer 0603-1           1440.000      1295.000      270      
+C5         "Cap Pol1"   TopLayer 0603-1           910.000       1294.999      270      
+C4         Cap          TopLayer 0603-1           561.375       1294.999      90       
+C3         Cap          TopLayer 0603-1           1795.000      1294.999      90       
+C2         Cap          TopLayer 0603-1           735.687       1294.999      90       
+C1         Cap          TopLayer 0603-1           822.843       1294.999      90       
