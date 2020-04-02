@@ -1,6 +1,7 @@
-/__Previews/*
-/History/*
-*.log
-*.Dat
-/Project Logs for EEG/*
-*.PrjPCBStructure
+/脑电采集主板_PRJ/__Previews/*
+/脑电采集主板_PRJ/History/*
+/脑电采集主板_PRJ/*.log
+/脑电采集主板_PRJ/*.Dat
+/脑电采集主板_PRJ/Project Logs for EEG/*
+/脑电采集主板_PRJ/Project Outputs for EEG/*
+/脑电采集主板_PRJ/*.PrjPCBStructure
