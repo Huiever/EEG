@@ -157,57 +157,80 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>37</LineNumber>
+          <LineNumber>13</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134219950</Address>
+          <Address>134220028</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>C:\Users\Huiever\Desktop\瀹為獙25 SPI瀹為獙\HARDWARE\EXTI\exti.c</Filename>
+          <Filename>C:\Users\Huiever\Desktop\EEG\MDK_Project\瀹為獙25 SPI瀹為獙\HARDWARE\EXTI\exti.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SPI\../HARDWARE/EXTI/exti.c\37</Expression>
+          <Expression>\\SPI\../HARDWARE/EXTI/exti.c\13</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>64</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134219630</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>C:\Users\Huiever\Desktop\EEG\MDK_Project\瀹為獙25 SPI瀹為獙\HARDWARE\ADS1299\ads1299.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\SPI\../HARDWARE/ADS1299/ads1299.c\64</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ADS1299_CS</ItemText>
+          <ItemText>ads_data</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>ADS1299_PWDN</ItemText>
+          <ItemText>DATA_ADS</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>pBuffer</ItemText>
+          <ItemText>HEX</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>DATA_ADS</ItemText>
+          <ItemText>buffer</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>1</WinNumber>
-          <ItemText>Data</ItemText>
+          <ItemText>buffer</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>1</WinNumber>
-          <ItemText>DATA_ADS</ItemText>
+          <ItemText>data_return</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>1</WinNumber>
-          <ItemText>data</ItemText>
+          <ItemText>buffer</ItemText>
         </Ww>
       </WatchWindow1>
+      <WatchWindow2>
+        <Ww>
+          <count>0</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>HEX</ItemText>
+        </Ww>
+      </WatchWindow2>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>

@@ -47,9 +47,14 @@
 #define	ADS1299_CS 		    PCout(8)  		//
 #define	ADS1299_START 		PCout(9)  		//
 
+typedef struct{
+    uint16_t start_code;
+    uint16_t status;
+    float data[8];
+    uint16_t end_code;
+}ads_data_t;
 
-unsigned char ADS_SPI(unsigned char com);
-void ADS_Read(unsigned char *data);
 void ads1299_init();
+void ads_data_process();
 
 #endif

@@ -34,7 +34,7 @@ int main(void)
 	while(1)
 	{
 		key=KEY_Scan(0);
-	    printf("1111111");
+	    //printf("123\r\n");
 	}       
 }
 
