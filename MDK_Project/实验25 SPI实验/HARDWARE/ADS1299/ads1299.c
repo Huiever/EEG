@@ -61,7 +61,7 @@ void ADS_PowerOnInit(void)
     delay_ms(10);
     ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
     delay_ms(10);
-        ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
+    ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
     delay_ms(10);
     /*fc for bias test*/
     ADS_REG(WREG|CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec

@@ -1,14 +1,58 @@
-﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=Quantity~Integer~Quantity~100|Field=Value~String~Value~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~EEG.PrjPCB|ReportField=ProjectFullPath~C:\Users\Huiever\Desktop\EEG\脑电采集主板_PRJ\EEG.PrjPCB|ReportField=Title~Bill of Materials For PCB Document [EEG.PcbDoc]|ReportField=ReportTime~16:02:08|ReportField=ReportDate~2020/4/7 星期二|ReportField=ReportDateTime~2020/4/7 星期二 16:02:08|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=TotalQuantity~57|ReportField=TotalActualPrice~0|ReportField=TotalTargetPrice~0|ReportField=VersionControl_RevNumber~|ReportField=VersionControl_ProjFolderRevNumber~fd5d2b9955d05cacc4c89abc1581114482596a0f|ReportField=DataSourceFileName~EEG.PcbDoc|ReportField=DataSourceFullPath~C:\Users\Huiever\Desktop\EEG\脑电采集主板_PRJ\EEG.PcbDoc|ReportField=PCBConfigurationName~Sources|ReportField=Item~|ReportField=ItemRevision~|ReportField=ItemAndRevision~|ReportField=ItemRevisionBase~|ReportField=ItemRevisionLevel1~|ReportField=ItemRevisionLevel2~|ReportField=ItemRevisionLevel1AndBase~|ReportField=ItemRevisionLevel2AndLevel1~
-1|Header 4X2||HDR2X4|1|
-2|Header 8||HDR1X8|1|
-3|Header 10||HDR1X10|1|
-4|Cap|C1, C2, C3, C4, C7, C9, C11, C13, C16, C18, C21, C22, C23, C24, C25, C27, C28, C29, C30, C31, C32, C33, C34, C35, C36, C37, C38, C39, C40|0603-1|29|1u, 0.1u, 0.01u, 2.2u, 10u, 22u, 100n
-5|Cap Pol1|C5, C6, C8, C10, C14, C15, C17, C19, C20|0603-1|9|10u
-6|Cap Pol2|C26|0603-1|1|100u
-7|Inductor|L1, L2, L3, L4|L-SMD-7|4|3.3uH
-8|Res1|R1, R2, R3, R5, R6, R7|0603-1|6|391k, 100k, 0, 10k
-9|TPS60403|U1|tps723/732/60403|1|
-10|TPS73225|U2|tps723/732/60403|1|
-11|TPS72325|U3|tps723/732/60403|1|
-12|ADS1299|U4|ADS1299|1|
-13|SPX5205|U5|SPX5205|1|
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=Quantity~Integer~Quantity~100|Field=Value~String~Value~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~EEG.PrjPCB|ReportField=ProjectFullPath~C:\Users\Huiever\Desktop\EEG\PCB\脑电采集主板_PRJ\EEG.PrjPCB|ReportField=Title~Bill of Materials For Project [EEG.PrjPCB] (No PCB Document Selected)|ReportField=ReportTime~17:17:54|ReportField=ReportDate~2020/5/4 星期一|ReportField=ReportDateTime~2020/5/4 星期一 17:17:54|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=TotalQuantity~166|ReportField=TotalActualPrice~0|ReportField=TotalTargetPrice~0|ReportField=VersionControl_RevNumber~|ReportField=VersionControl_ProjFolderRevNumber~06867ff245284b1df5834221298fe6a1fc1c31c6|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~2020/5/4 星期一|ReportField=CurrentTime~17:16:58|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\Huiever\Desktop\EEG\PCB\脑电采集主板_PRJ\EEG.SchDoc|ReportField=DocumentName~EEG.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~2020/5/4 星期一|ReportField=Organization~|ReportField=ProjectName~EEG.PrjPCB|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~EEG.PrjPCB|ReportField=DataSourceFullPath~C:\Users\Huiever\Desktop\EEG\PCB\脑电采集主板_PRJ\EEG.PrjPCB|ReportField=PCBConfigurationName~Sources|ReportField=Item~|ReportField=ItemRevision~|ReportField=ItemAndRevision~|ReportField=ItemRevisionBase~|ReportField=ItemRevisionLevel1~|ReportField=ItemRevisionLevel2~|ReportField=ItemRevisionLevel1AndBase~|ReportField=ItemRevisionLevel2AndLevel1~
+1|ADS1299||ADS1299|1|
+2|Cap|C24, C?|0603-1|13|10u, 100n, 22u, 100nF, 2.2u, 0.01u, 1u
+3|1uF 50V|C?|0603_C|8|
+4|1uF (105) 10% 50V|C?|0603_C|2|
+5|2.2uF 16V|C?|0603_C|2|
+6|2.2uF (225) 10% 16V|C?|0603_C|1|
+7|4.7nF 50V|C?|0603_C|17|
+8|4.7uF 16V|C?|0603_C|2|
+9|10nF 50V|C?|0603_C|1|
+10|10pF|C?|0603_C|2|
+11|10uF 10V|C?|0603_C|9|
+12|10uF  10V|C?|0603_C|2|
+13|10uF (106) 10% 10V|C?|0603_C|1|
+14|22pF|C?|0603_C|2|
+15|22uF 6.3V|C?|0603_C|4|
+16|100nF 50V|C?|0603_C|11|
+17|100nF  50V|C?|0603_C|16|
+18|100nF (104) 10% 50V|C?|0603_C|2|
+19|100uF (107) ±10% 6.3V|C?|CASE-B_3528|1|
+20|1N4148WS T4|D?|SOD-323|1|
+21|BAV70 A4|D?|SOT-23(SOT-23-3)|1|
+22|红灯 0805|D?|0805_LED_S1|1|
+23|绿灯 0603|D?|0603_LED_S1|2|
+24|Fuse 1A|F?|PIN-W2/E2.8|1|
+25|3.3uH±10%|L?|0805_L|4|
+26|6.8uH|L?|0603_L|1|
+27|ATK_ESP8266_CON|P?|HDR1X6|1|
+28|HC-05_CON|P?|HDR1X6|1|
+29|Header 5|P?|HDR1X5|1|
+30|Header 10X2|P?|HDR2X10|1|
+31|SWD|P?|HDR1X4|1|
+32|SS8050 Y1|Q?|SOT-23(SOT-23-3)|1|
+33|SS8550 Y2|Q?|SOT-23(SOT-23-3)|1|
+34|0Ω|R?|0603_R|3|
+35|1KΩ|R?|0603_R|1|
+36|1KΩ (1001) ±1%|R?|0603_R|3|
+37|1MΩ|R?|0603_R|1|
+38|4.99KΩ|R?|0603_R|16|
+39|4.99KΩ (4991) ±1%|R?|0603_R|1|
+40|10K|R?|0603_R|3|
+41|10KΩ|R?|0603_R|4|
+42|10Ω (10R0) ±1%|R?|0603_R|2|
+43|100KΩ|R?|0603_R|1|
+44|391KΩ|R?|0603_R|1|
+45|510Ω|R?|0603_R|2|
+46|SW-PB|S?|SPST-2|1|
+47|CH340G|U?|SOIC-16_150mil|1|
+48|H0505S-2W|U?||1|
+49|OPA376DBV|U?|SOT-23-5|1|
+50|SPX5205|U?|SPX5205|1|
+51|STM32F429ZGT6|U?|LQFP-144_20x20x05P|1|
+52|TPS60403|U?|tps723/732/60403|1|
+53|TPS72325|U?|tps723/732/60403|1|
+54|TPS73225|U?|tps723/732/60403|1|
+55|AMS1117-3.3|VR?|SOT-223|2|
+56|8MHz ±20ppm 20pF|Y?|SMD-5032_2P|1|
+57|32.768KHz|Y?|SMD-5032_2P|1|
