@@ -1,10 +1,11 @@
-Output: Test Point Report
-Type  : Test Points
-From  : Project [EEG.PrjPCB]
-   Generated File[Fabrication Testpoint Report for EEG.ipc]
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of Project [EEG.PrjPCB]
+   Generated File[Pick Place for 脑电采集.txt]
+   Generated File[Pick Place for 脑电采集.csv]
 
 
-Files Generated   : 1
+Files Generated   : 2
 Documents Printed : 0
 
-Finished Output Generation At 13:27:59 On 2020/4/2 星期四
+Finished Output Generation At 9:45:37 On 2020/5/7 星期四

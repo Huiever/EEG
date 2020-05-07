@@ -3461,3 +3461,5 @@
 [0506/092854:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
 [0506/092855:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
 [0506/092855:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0506/185103:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0506/185234:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
