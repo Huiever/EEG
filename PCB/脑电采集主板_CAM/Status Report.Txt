@@ -1,11 +1,10 @@
 Output: Generates pick and place files
 Type  : Pick Place
 From  : Variant [[No Variations]] of Project [EEG.PrjPCB]
-   Generated File[Pick Place for 脑电采集.txt]
    Generated File[Pick Place for 脑电采集.csv]
 
 
-Files Generated   : 2
+Files Generated   : 1
 Documents Printed : 0
 
-Finished Output Generation At 9:45:37 On 2020/5/7 星期四
+Finished Output Generation At 13:28:30 On 2020/5/7 星期四

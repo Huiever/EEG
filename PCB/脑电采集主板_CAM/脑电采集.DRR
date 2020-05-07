@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: 脑电采集.PcbDoc   2020/5/7 星期四  9:34:35
+NCDrill File Report For: 脑电采集.PcbDoc   2020/5/7 星期四  13:27:09
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -8,12 +8,13 @@ ASCII SlotHoles File : 脑电采集-SlotHoles.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      16mil (0.399mm)                                           Slot              2         PTH        0.00inch (0.00mm)
-T2      35mil (0.899mm)                                           Round             46        PTH        0.00inch (0.00mm)
-T3      39mil (1.001mm)                                           Round             208       PTH        0.00inch (0.00mm)
-T4      138mil (3.5mm)                                            Round             4         PTH        0.00inch (0.00mm)
-T5      20mil (0.5mm)                                             Round             2         NPTH       0.00inch (0.00mm)
+T1      12mil (0.305mm)                                           Round             230       PTH        0.00inch (0.00mm)
+T2      16mil (0.399mm)                                           Slot              2         PTH        0.00inch (0.00mm)
+T3      35mil (0.899mm)                                           Round             46        PTH        0.00inch (0.00mm)
+T4      39mil (1.001mm)                                           Round             5         PTH        0.00inch (0.00mm)
+T5      138mil (3.5mm)                                            Round             4         PTH        0.00inch (0.00mm)
+T6      20mil (0.5mm)                                             Round             2         NPTH       0.00inch (0.00mm)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              262
+Totals                                                                              289
 
 Total Processing Time (hh:mm:ss) : 00:00:00
