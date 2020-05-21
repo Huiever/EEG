@@ -44,7 +44,7 @@
 #define	ADS1299_DRDY 		PCin(0)  		//
 #define	ADS1299_RESET 		PCout(6)  		//
 #define	ADS1299_PWDN 		PCout(7)  		//
-#define	ADS1299_CS 		    PCout(8)  		//
+#define	ADS1299_CS 		    PCout(12)  		//
 #define	ADS1299_START 		PCout(9)  		//
 
 typedef struct{
