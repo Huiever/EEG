@@ -68,12 +68,12 @@ void ADS_PowerOnInit(void)
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
     //ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
     ADS_REG(WREG|CONFIG2,0xC0);	
-    ADS_REG(WREG|MISC1,0x20);	
+    //ADS_REG(WREG|MISC1,0x20);	
 
-    ADS_REG(WREG|CH1SET,0X03);	//amplified x1
-    ADS_REG(WREG|CH2SET,0X03);	//amplified x1
-    ADS_REG(WREG|CH3SET,0X03);	//amplified x1
-    ADS_REG(WREG|CH4SET,0X03);	//amplified x1
+    ADS_REG(WREG|CH1SET,0X60);	//amplified x1
+    ADS_REG(WREG|CH2SET,0X65);	//amplified x1
+    ADS_REG(WREG|CH3SET,0X05);	//amplified x1
+    ADS_REG(WREG|CH4SET,0X60);	//amplified x1
     ADS_REG(WREG|CH5SET,0X80);	//amplified x1
     ADS_REG(WREG|CH6SET,0X80);	//amplified x1
     ADS_REG(WREG|CH7SET,0X80);	//amplified x1
