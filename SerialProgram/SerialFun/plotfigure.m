@@ -1,16 +1,13 @@
+close all;
 a = load('eeg2.txt');
-b = a(3000:7000,1)./24;
-c = lp2 (b);
-d = bandstop(c);
-x =lp30(d);
-
-N = 1000;
-Fs=250;T=1/Fs;Tp=N*T;
-fst=fft(x,N);k=0:N-1;f=k/Tp;
-
-
+b = a(:,1)./24;
+c = hp03(b);
+d = bp10(c);
+e =lp30(d);
+x = e(5000:9000);
 %时域波形
-subplot(311);
+% subplot(311);
+figure
 t = (0:1/250:length(x)/250 - 1/250);
 plot(t,x);
 xlabel('time/s');
@@ -26,7 +23,12 @@ title('时域信号');
 % P1 = P2(1:L/2+1);
 % P1(2:end-1) = 2*P1(2:end-1);
 
-subplot(312);
+N = 1000;
+Fs=250;T=1/Fs;Tp=N*T;
+fst=fft(x,N);k=0:N-1;f=k/Tp;
+
+figure
+% subplot(312);
 %plot(f,P1);
 plot(f,abs(fst)/max(abs(fst)));
 xlabel('频率');
@@ -41,9 +43,9 @@ psdx = (1/(Fs*N)) * abs(xdft).^2;
 psdx(2:end-1) = 2*psdx(2:end-1);
 freq = 0:Fs/length(x):Fs/2;
 
-
-subplot(313);
-plot(freq,10*log10(psdx))
+figure
+%subplot(313);
+plot(freq,psdx)
 grid on
 title('Periodogram Using FFT')
 xlabel('Frequency (Hz)')

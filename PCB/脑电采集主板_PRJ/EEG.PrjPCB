@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=Project Outputs for EEG
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -55,7 +55,7 @@ GenerateClassCluster=0
 DocumentUniqueId=JTPWEPGM
 
 [Document2]
-DocumentPath=Sheet1.SchDoc
+DocumentPath=pwr.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -69,10 +69,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SMLXIRYG
+DocumentUniqueId=MPDSTDYF
 
 [Document3]
-DocumentPath=Sheet2.SchDoc
+DocumentPath=stm32f103.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -86,10 +86,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=NRCJLGXU
+DocumentUniqueId=TYRSRYNI
 
 [Document4]
-DocumentPath=Sheet3.SchDoc
+DocumentPath=ble.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -103,10 +103,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=HIAEWHWB
+DocumentUniqueId=YSGUYGSA
 
 [Document5]
-DocumentPath=齟萇粒摩.PcbDoc
+DocumentPath=EEG_new.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -120,10 +120,103 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MXWMIVBQ
+DocumentUniqueId=HSHQCMPE
+
+[Document6]
+DocumentPath=logo.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=FENWKJKP
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for EEG\Design Rule Check - 齟萇粒摩.html
+DocumentPath=Project Outputs for EEG\Design Rule Check - EEG_new.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for EEG\EEG_new-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for EEG\EEG_new-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for EEG\EEG_new.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for EEG\EEG_new.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for EEG\EEG_new.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for EEG\EEG_new.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for EEG\EEG_new.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for EEG\EEG_new.GD1
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for EEG\EEG_new.GG1
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for EEG\EEG_new.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for EEG\EEG_new.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for EEG\EEG_new.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for EEG\EEG_new.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for EEG\EEG_new.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for EEG\EEG_new.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs for EEG\EEG_new.REP
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs for EEG\EEG_new.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for EEG\Fabrication Testpoint Report for EEG_new.ipc
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for EEG\Pick Place for EEG_new.csv
 DItemRevisionGUID=
 
 [SearchPath1]
@@ -177,7 +270,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=0
 
 [Generic_EDE]
-OutputDir=Project Outputs for EEG
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -288,7 +381,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=HP DJ 3830 series
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
@@ -360,7 +453,7 @@ PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup4]
 Name=Assembly Outputs
 Description=
-TargetPrinter=Adobe PDF
+TargetPrinter=HP DJ 3830 series
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Assembly
 OutputName1=Assembly Drawings
@@ -414,77 +507,77 @@ OutputDefault3=0
 [OutputGroup5]
 Name=Fabrication Outputs
 Description=
-TargetPrinter=Adobe PDF
+TargetPrinter=HP DJ 3830 series
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
-OutputType1=CompositeDrill
-OutputName1=Composite Drill Drawing
+OutputType1=NC Drill
+OutputName1=NC Drill Files
 OutputDocumentPath1=
 OutputVariantName1=
 OutputDefault1=0
-PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType2=Drill
-OutputName2=Drill Drawing/Guides
+Configuration1_Name1=ForceUpdateSettings
+Configuration1_Item1=False
+Configuration1_Name2=OutputConfigurationParameter1
+Configuration1_Item2=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=4|NumberOfUnits=2|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Imperial|ZeroesMode=SuppressTrailingZeroes
+OutputType2=Mask
+OutputName2=Solder/Paste Mask Prints
 OutputDocumentPath2=
 OutputVariantName2=
 OutputDefault2=0
 PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType3=Board Stack Report
-OutputName3=Report Board Stack
+OutputType3=IPC2581
+OutputName3=IPC-2581 Files
 OutputDocumentPath3=
 OutputVariantName3=
 OutputDefault3=0
-PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType4=Final
-OutputName4=Final Artwork Prints
+OutputType4=Test Points
+OutputName4=Test Point Report
 OutputDocumentPath4=
-OutputVariantName4=[No Variations]
+OutputVariantName4=
 OutputDefault4=0
-PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType5=Gerber X2
-OutputName5=Gerber X2 Files
+Configuration4_Name1=ForceUpdateSettings
+Configuration4_Item1=False
+Configuration4_Name2=OutputConfigurationParameter1
+Configuration4_Item2=AdjacencyDistance=250000|GenerateCSVFormat=False|GenerateIPCFormat=True|GenerateSpreadSheetFormat=False|GenerateTextFormat=False|OriginPosition=Relative|OutlineLayer=56|OutputAdjancencies=False|OutputBoardOutline=False|OutputTraces=False|Record=TestPointView|ReportBottomLayerTestpoints=True|ReportTopLayerTestpoints=True|Units=Imperial
+OutputType5=Plane
+OutputName5=Power-Plane Prints
 OutputDocumentPath5=
 OutputVariantName5=
 OutputDefault5=0
+PageOptions5=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType6=ODB
 OutputName6=ODB++ Files
 OutputDocumentPath6=
 OutputVariantName6=[No Variations]
 OutputDefault6=0
-OutputType7=Mask
-OutputName7=Solder/Paste Mask Prints
+OutputType7=Drill
+OutputName7=Drill Drawing/Guides
 OutputDocumentPath7=
 OutputVariantName7=
 OutputDefault7=0
 PageOptions7=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType8=NC Drill
-OutputName8=NC Drill Files
+OutputType8=CompositeDrill
+OutputName8=Composite Drill Drawing
 OutputDocumentPath8=
 OutputVariantName8=
 OutputDefault8=0
-Configuration8_Name1=ForceUpdateSettings
-Configuration8_Item1=False
-Configuration8_Name2=OutputConfigurationParameter1
-Configuration8_Item2=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=4|NumberOfUnits=2|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Imperial|ZeroesMode=SuppressTrailingZeroes
-OutputType9=IPC2581
-OutputName9=IPC-2581 Files
+PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+OutputType9=Board Stack Report
+OutputName9=Report Board Stack
 OutputDocumentPath9=
 OutputVariantName9=
 OutputDefault9=0
-OutputType10=Plane
-OutputName10=Power-Plane Prints
+PageOptions9=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+OutputType10=Gerber X2
+OutputName10=Gerber X2 Files
 OutputDocumentPath10=
 OutputVariantName10=
 OutputDefault10=0
-PageOptions10=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType11=Test Points
-OutputName11=Test Point Report
+OutputType11=Final
+OutputName11=Final Artwork Prints
 OutputDocumentPath11=
-OutputVariantName11=
+OutputVariantName11=[No Variations]
 OutputDefault11=0
-Configuration11_Name1=ForceUpdateSettings
-Configuration11_Item1=False
-Configuration11_Name2=OutputConfigurationParameter1
-Configuration11_Item2=AdjacencyDistance=250000|GenerateCSVFormat=False|GenerateIPCFormat=True|GenerateSpreadSheetFormat=False|GenerateTextFormat=False|OriginPosition=Relative|OutlineLayer=56|OutputAdjancencies=False|OutputBoardOutline=False|OutputTraces=False|Record=TestPointView|ReportBottomLayerTestpoints=True|ReportTopLayerTestpoints=True|Units=Imperial
+PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType12=Gerber
 OutputName12=Gerber Files
 OutputDocumentPath12=
@@ -498,50 +591,50 @@ Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLaye
 [OutputGroup6]
 Name=Report Outputs
 Description=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=HP DJ 3830 series
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
-OutputType1=BOM_PartType
-OutputName1=Bill of Materials
+OutputType1=Script
+OutputName1=Script Output
 OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
-PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-Configuration1_Name1=ColumnNameFormat
-Configuration1_Item1=CaptionAsName
-Configuration1_Name2=Filter
-Configuration1_Item2=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
-Configuration1_Name3=ForceUpdateSettings
-Configuration1_Item3=False
-Configuration1_Name4=General
-Configuration1_Item4=OpenExported=False|AddToProject=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePCBData=True|IncludeVaultData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Users\Public\Documents\Altium\AD18\Templates\BOM Default Template.XLT|BatchMode=0|FormWidth=1187|FormHeight=816|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>|ViewType=0
-Configuration1_Name5=GroupOrder
-Configuration1_Item5=Comment=True|Footprint=True
-Configuration1_Name6=SortOrder
-Configuration1_Item6=Designator=Up|Comment=Up|Footprint=Up
-Configuration1_Name7=VisibleOrder
-Configuration1_Item7=Comment=80|Description=80|Designator=80|Footprint=80|LibRef=80|Pins=80|Quantity=80
-OutputType2=ComponentCrossReference
-OutputName2=Component Cross Reference Report
+OutputType2=SimpleBOM
+OutputName2=Simple BOM
 OutputDocumentPath2=
 OutputVariantName2=[No Variations]
 OutputDefault2=0
-OutputType3=ReportHierarchy
-OutputName3=Report Project Hierarchy
+OutputType3=SinglePinNetReporter
+OutputName3=Report Single Pin Nets
 OutputDocumentPath3=
 OutputVariantName3=[No Variations]
 OutputDefault3=0
-OutputType4=Script
-OutputName4=Script Output
+OutputType4=BOM_PartType
+OutputName4=Bill of Materials
 OutputDocumentPath4=
 OutputVariantName4=[No Variations]
 OutputDefault4=0
-OutputType5=SimpleBOM
-OutputName5=Simple BOM
+PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+Configuration4_Name1=ColumnNameFormat
+Configuration4_Item1=CaptionAsName
+Configuration4_Name2=Filter
+Configuration4_Item2=545046300E5446696C74657257726170706572000D46696C7465722E416374697665090F46696C7465722E43726974657269610A04000000000000000000
+Configuration4_Name3=ForceUpdateSettings
+Configuration4_Item3=False
+Configuration4_Name4=General
+Configuration4_Item4=OpenExported=False|AddToProject=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePCBData=True|IncludeVaultData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Users\Public\Documents\Altium\AD18\Templates\BOM Default Template.XLT|BatchMode=0|FormWidth=1187|FormHeight=816|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=<none>|ViewType=0
+Configuration4_Name5=GroupOrder
+Configuration4_Item5=Comment=True|Footprint=True
+Configuration4_Name6=SortOrder
+Configuration4_Item6=Designator=Up|Comment=Up|Footprint=Up
+Configuration4_Name7=VisibleOrder
+Configuration4_Item7=Comment=80|Description=80|Designator=80|Footprint=80|LibRef=80|Pins=80|Quantity=80
+OutputType5=ComponentCrossReference
+OutputName5=Component Cross Reference Report
 OutputDocumentPath5=
 OutputVariantName5=[No Variations]
 OutputDefault5=0
-OutputType6=SinglePinNetReporter
-OutputName6=Report Single Pin Nets
+OutputType6=ReportHierarchy
+OutputName6=Report Project Hierarchy
 OutputDocumentPath6=
 OutputVariantName6=[No Variations]
 OutputDefault6=0
@@ -1187,20 +1280,20 @@ ComponentUpdate0=1
 ComponentIsDeviceSheet0=0
 ComponentLibIdentifierKind1=Library Name And Type
 ComponentLibraryIdentifier1=EEG.SchLib
-ComponentDesignItemID1=H0505S-2W
-ComponentSymbolReference1=H0505S-2W
+ComponentDesignItemID1=CC2640R2F
+ComponentSymbolReference1=CC2640R2F
 ComponentUpdate1=1
 ComponentIsDeviceSheet1=0
 ComponentLibIdentifierKind2=Library Name And Type
 ComponentLibraryIdentifier2=EEG.SchLib
-ComponentDesignItemID2=OPA376DBV
-ComponentSymbolReference2=OPA376DBV
+ComponentDesignItemID2=nRF52832
+ComponentSymbolReference2=nRF52832
 ComponentUpdate2=1
 ComponentIsDeviceSheet2=0
 ComponentLibIdentifierKind3=Library Name And Type
 ComponentLibraryIdentifier3=EEG.SchLib
-ComponentDesignItemID3=SPX5205
-ComponentSymbolReference3=SPX5205
+ComponentDesignItemID3=TPD4E1B06DCKR
+ComponentSymbolReference3=TPD4E1B06DCKR
 ComponentUpdate3=1
 ComponentIsDeviceSheet3=0
 ComponentLibIdentifierKind4=Library Name And Type
@@ -1211,224 +1304,224 @@ ComponentUpdate4=1
 ComponentIsDeviceSheet4=0
 ComponentLibIdentifierKind5=Library Name And Type
 ComponentLibraryIdentifier5=EEG.SchLib
-ComponentDesignItemID5=TPS72325
-ComponentSymbolReference5=TPS72325
+ComponentDesignItemID5=TPS71733DCKR
+ComponentSymbolReference5=TPS71733DCKR
 ComponentUpdate5=1
 ComponentIsDeviceSheet5=0
 ComponentLibIdentifierKind6=Library Name And Type
 ComponentLibraryIdentifier6=EEG.SchLib
-ComponentDesignItemID6=TPS73225
-ComponentSymbolReference6=TPS73225
+ComponentDesignItemID6=TPS72325
+ComponentSymbolReference6=TPS72325
 ComponentUpdate6=1
 ComponentIsDeviceSheet6=0
 ComponentLibIdentifierKind7=Library Name And Type
-ComponentLibraryIdentifier7=Miscellaneous Connectors.IntLib
-ComponentDesignItemID7=Header 10X2
-ComponentSymbolReference7=Header 10X2
+ComponentLibraryIdentifier7=EEG.SchLib
+ComponentDesignItemID7=TPS73225
+ComponentSymbolReference7=TPS73225
 ComponentUpdate7=1
 ComponentIsDeviceSheet7=0
 ComponentLibIdentifierKind8=Library Name And Type
 ComponentLibraryIdentifier8=Miscellaneous Connectors.IntLib
-ComponentDesignItemID8=Header 4
-ComponentSymbolReference8=Header 4
+ComponentDesignItemID8=Header 10X2
+ComponentSymbolReference8=Header 10X2
 ComponentUpdate8=1
 ComponentIsDeviceSheet8=0
 ComponentLibIdentifierKind9=Library Name And Type
 ComponentLibraryIdentifier9=Miscellaneous Connectors.IntLib
-ComponentDesignItemID9=Header 5
-ComponentSymbolReference9=Header 5
+ComponentDesignItemID9=Header 2
+ComponentSymbolReference9=Header 2
 ComponentUpdate9=1
 ComponentIsDeviceSheet9=0
 ComponentLibIdentifierKind10=Library Name And Type
 ComponentLibraryIdentifier10=Miscellaneous Connectors.IntLib
-ComponentDesignItemID10=Header 6
-ComponentSymbolReference10=Header 6
+ComponentDesignItemID10=Header 3X2
+ComponentSymbolReference10=Header 3X2
 ComponentUpdate10=1
 ComponentIsDeviceSheet10=0
 ComponentLibIdentifierKind11=Library Name And Type
-ComponentLibraryIdentifier11=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID11=0603 0次 (0R0) 1%
-ComponentSymbolReference11=0603 0次 (0R0) 1%
+ComponentLibraryIdentifier11=Miscellaneous Connectors.IntLib
+ComponentDesignItemID11=Header 4
+ComponentSymbolReference11=Header 4
 ComponentUpdate11=1
 ComponentIsDeviceSheet11=0
 ComponentLibIdentifierKind12=Library Name And Type
-ComponentLibraryIdentifier12=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID12=0603 1.2M次 (1204) 1%
-ComponentSymbolReference12=0603 1.2M次 (1204) 1%
+ComponentLibraryIdentifier12=Miscellaneous Connectors.IntLib
+ComponentDesignItemID12=Header 5
+ComponentSymbolReference12=Header 5
 ComponentUpdate12=1
 ComponentIsDeviceSheet12=0
 ComponentLibIdentifierKind13=Library Name And Type
-ComponentLibraryIdentifier13=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID13=0603 100K次 (1003) 1%
-ComponentSymbolReference13=0603 100K次 (1003) 1%
+ComponentLibraryIdentifier13=Miscellaneous Connectors.IntLib
+ComponentDesignItemID13=Header 5X2
+ComponentSymbolReference13=Header 5X2
 ComponentUpdate13=1
 ComponentIsDeviceSheet13=0
 ComponentLibIdentifierKind14=Library Name And Type
-ComponentLibraryIdentifier14=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID14=0603 100nF (104) 10% 50V
-ComponentSymbolReference14=0603 100nF (104) 10% 50V
+ComponentLibraryIdentifier14=Miscellaneous Connectors.IntLib
+ComponentDesignItemID14=Header 6
+ComponentSymbolReference14=Header 6
 ComponentUpdate14=1
 ComponentIsDeviceSheet14=0
 ComponentLibIdentifierKind15=Library Name And Type
-ComponentLibraryIdentifier15=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID15=0603 10K次 (1002) 1%
-ComponentSymbolReference15=0603 10K次 (1002) 1%
+ComponentLibraryIdentifier15=Miscellaneous Connectors.IntLib
+ComponentDesignItemID15=Header 6X2
+ComponentSymbolReference15=Header 6X2
 ComponentUpdate15=1
 ComponentIsDeviceSheet15=0
 ComponentLibIdentifierKind16=Library Name And Type
 ComponentLibraryIdentifier16=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID16=0603 10nF (103) 10% 50V
-ComponentSymbolReference16=0603 10nF (103) 10% 50V
+ComponentDesignItemID16=0603 1.2M次 (1204) 1%
+ComponentSymbolReference16=0603 1.2M次 (1204) 1%
 ComponentUpdate16=1
 ComponentIsDeviceSheet16=0
 ComponentLibIdentifierKind17=Library Name And Type
 ComponentLibraryIdentifier17=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID17=0603 10pF (100) 5% 50V
-ComponentSymbolReference17=0603 10pF (100) 5% 50V
+ComponentDesignItemID17=0603 1.5K次 (1501) 1%
+ComponentSymbolReference17=0603 1.5K次 (1501) 1%
 ComponentUpdate17=1
 ComponentIsDeviceSheet17=0
 ComponentLibIdentifierKind18=Library Name And Type
 ComponentLibraryIdentifier18=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID18=0603 10uF (106) 10% 10V
-ComponentSymbolReference18=0603 10uF (106) 10% 10V
+ComponentDesignItemID18=0603 100K次 (1003) 1%
+ComponentSymbolReference18=0603 100K次 (1003) 1%
 ComponentUpdate18=1
 ComponentIsDeviceSheet18=0
 ComponentLibIdentifierKind19=Library Name And Type
 ComponentLibraryIdentifier19=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID19=0603 10次 (10R0) 1%
-ComponentSymbolReference19=0603 10次 (10R0) 1%
+ComponentDesignItemID19=0603 100nF (104) 10% 50V
+ComponentSymbolReference19=0603 100nF (104) 10% 50V
 ComponentUpdate19=1
 ComponentIsDeviceSheet19=0
 ComponentLibIdentifierKind20=Library Name And Type
 ComponentLibraryIdentifier20=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID20=0603 1K次 (1001) 1%
-ComponentSymbolReference20=0603 1K次 (1001) 1%
+ComponentDesignItemID20=0603 10K次 (1002) 1%
+ComponentSymbolReference20=0603 10K次 (1002) 1%
 ComponentUpdate20=1
 ComponentIsDeviceSheet20=0
 ComponentLibIdentifierKind21=Library Name And Type
 ComponentLibraryIdentifier21=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID21=0603 1uF (105) 10% 50V
-ComponentSymbolReference21=0603 1uF (105) 10% 50V
+ComponentDesignItemID21=0603 10nF (103) 10% 50V
+ComponentSymbolReference21=0603 10nF (103) 10% 50V
 ComponentUpdate21=1
 ComponentIsDeviceSheet21=0
 ComponentLibIdentifierKind22=Library Name And Type
 ComponentLibraryIdentifier22=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID22=0603 2.2uF (225) 10% 16V
-ComponentSymbolReference22=0603 2.2uF (225) 10% 16V
+ComponentDesignItemID22=0603 10pF (100) 5% 50V
+ComponentSymbolReference22=0603 10pF (100) 5% 50V
 ComponentUpdate22=1
 ComponentIsDeviceSheet22=0
 ComponentLibIdentifierKind23=Library Name And Type
 ComponentLibraryIdentifier23=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID23=0603 22pF (220) 5% 50V
-ComponentSymbolReference23=0603 22pF (220) 5% 50V
+ComponentDesignItemID23=0603 10uF (106) 10% 10V
+ComponentSymbolReference23=0603 10uF (106) 10% 10V
 ComponentUpdate23=1
 ComponentIsDeviceSheet23=0
 ComponentLibIdentifierKind24=Library Name And Type
 ComponentLibraryIdentifier24=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID24=0603 22uF (226) 20% 6.3V
-ComponentSymbolReference24=0603 22uF (226) 20% 6.3V
+ComponentDesignItemID24=0603 10次 (10R0) 1%
+ComponentSymbolReference24=0603 10次 (10R0) 1%
 ComponentUpdate24=1
 ComponentIsDeviceSheet24=0
 ComponentLibIdentifierKind25=Library Name And Type
 ComponentLibraryIdentifier25=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID25=0603 4.7nF (472) 10% 50V
-ComponentSymbolReference25=0603 4.7nF (472) 10% 50V
+ComponentDesignItemID25=0603 1K次 (1001) 1%
+ComponentSymbolReference25=0603 1K次 (1001) 1%
 ComponentUpdate25=1
 ComponentIsDeviceSheet25=0
 ComponentLibIdentifierKind26=Library Name And Type
 ComponentLibraryIdentifier26=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID26=0603 4.7uF (475) 10% 16V
-ComponentSymbolReference26=0603 4.7uF (475) 10% 16V
+ComponentDesignItemID26=0603 1nF (102) 10% 50V
+ComponentSymbolReference26=0603 1nF (102) 10% 50V
 ComponentUpdate26=1
 ComponentIsDeviceSheet26=0
 ComponentLibIdentifierKind27=Library Name And Type
 ComponentLibraryIdentifier27=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID27=0603 4.7uH 10%
-ComponentSymbolReference27=0603 4.7uH 10%
+ComponentDesignItemID27=0603 1uF (105) 10% 50V
+ComponentSymbolReference27=0603 1uF (105) 10% 50V
 ComponentUpdate27=1
 ComponentIsDeviceSheet27=0
 ComponentLibIdentifierKind28=Library Name And Type
 ComponentLibraryIdentifier28=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID28=0603 4.99K次 (4991) 1%
-ComponentSymbolReference28=0603 4.99K次 (4991) 1%
+ComponentDesignItemID28=0603 22pF (220) 5% 50V
+ComponentSymbolReference28=0603 22pF (220) 5% 50V
 ComponentUpdate28=1
 ComponentIsDeviceSheet28=0
 ComponentLibIdentifierKind29=Library Name And Type
 ComponentLibraryIdentifier29=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID29=0603 510次 (5100) 1%
-ComponentSymbolReference29=0603 510次 (5100) 1%
+ComponentDesignItemID29=0603 33次 (33R0) 1%
+ComponentSymbolReference29=0603 33次 (33R0) 1%
 ComponentUpdate29=1
 ComponentIsDeviceSheet29=0
 ComponentLibIdentifierKind30=Library Name And Type
 ComponentLibraryIdentifier30=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID30=0603 蟯腑
-ComponentSymbolReference30=0603 蟯腑
+ComponentDesignItemID30=0603 4.7nF (472) 10% 50V
+ComponentSymbolReference30=0603 4.7nF (472) 10% 50V
 ComponentUpdate30=1
 ComponentIsDeviceSheet30=0
 ComponentLibIdentifierKind31=Library Name And Type
 ComponentLibraryIdentifier31=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID31=0805 3.3uH10%
-ComponentSymbolReference31=0805 3.3uH10%
+ComponentDesignItemID31=0603 4.99K次 (4991) 1%
+ComponentSymbolReference31=0603 4.99K次 (4991) 1%
 ComponentUpdate31=1
 ComponentIsDeviceSheet31=0
 ComponentLibIdentifierKind32=Library Name And Type
 ComponentLibraryIdentifier32=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID32=0805 綻腑
-ComponentSymbolReference32=0805 綻腑
+ComponentDesignItemID32=0603 510次 (5100) 1%
+ComponentSymbolReference32=0603 510次 (5100) 1%
 ComponentUpdate32=1
 ComponentIsDeviceSheet32=0
 ComponentLibIdentifierKind33=Library Name And Type
 ComponentLibraryIdentifier33=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID33=3528 100uF (107) 10% 6.3V
-ComponentSymbolReference33=3528 100uF (107) 10% 6.3V
+ComponentDesignItemID33=0603 蟯腑
+ComponentSymbolReference33=0603 蟯腑
 ComponentUpdate33=1
 ComponentIsDeviceSheet33=0
 ComponentLibIdentifierKind34=Library Name And Type
 ComponentLibraryIdentifier34=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID34=SMD-5032_2P 8MHz 20ppm 20pF
-ComponentSymbolReference34=SMD-5032_2P 8MHz 20ppm 20pF
+ComponentDesignItemID34=0805 綻腑
+ComponentSymbolReference34=0805 綻腑
 ComponentUpdate34=1
 ComponentIsDeviceSheet34=0
 ComponentLibIdentifierKind35=Library Name And Type
 ComponentLibraryIdentifier35=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID35=SOD-323 1N4148WS T4
-ComponentSymbolReference35=SOD-323 1N4148WS T4
+ComponentDesignItemID35=3528 100uF (107) 10% 6.3V
+ComponentSymbolReference35=3528 100uF (107) 10% 6.3V
 ComponentUpdate35=1
 ComponentIsDeviceSheet35=0
 ComponentLibIdentifierKind36=Library Name And Type
 ComponentLibraryIdentifier36=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID36=SOT-223 AMS1117-3.3
-ComponentSymbolReference36=SOT-223 AMS1117-3.3
+ComponentDesignItemID36=SMD-5032_2P 8MHz 20ppm 20pF
+ComponentSymbolReference36=SMD-5032_2P 8MHz 20ppm 20pF
 ComponentUpdate36=1
 ComponentIsDeviceSheet36=0
 ComponentLibIdentifierKind37=Library Name And Type
 ComponentLibraryIdentifier37=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID37=SOT-23 BAV70 A4
-ComponentSymbolReference37=SOT-23 BAV70 A4
+ComponentDesignItemID37=SOD-123 B5819W  SL
+ComponentSymbolReference37=SOD-123 B5819W  SL
 ComponentUpdate37=1
 ComponentIsDeviceSheet37=0
 ComponentLibIdentifierKind38=Library Name And Type
 ComponentLibraryIdentifier38=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID38=SOT-23 SS8050 Y1
-ComponentSymbolReference38=SOT-23 SS8050 Y1
+ComponentDesignItemID38=SOD-323 1N4148WS T4
+ComponentSymbolReference38=SOD-323 1N4148WS T4
 ComponentUpdate38=1
 ComponentIsDeviceSheet38=0
 ComponentLibIdentifierKind39=Library Name And Type
 ComponentLibraryIdentifier39=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID39=SOT-23 SS8550 Y2
-ComponentSymbolReference39=SOT-23 SS8550 Y2
+ComponentDesignItemID39=SOT-23 SS8050 Y1
+ComponentSymbolReference39=SOT-23 SS8050 Y1
 ComponentUpdate39=1
 ComponentIsDeviceSheet39=0
 ComponentLibIdentifierKind40=Library Name And Type
 ComponentLibraryIdentifier40=Miscellaneous Devices LC.IntLib
-ComponentDesignItemID40=STM32F429ZGT6
-ComponentSymbolReference40=STM32F429ZGT6
+ComponentDesignItemID40=SOT-23 SS8550 Y2
+ComponentSymbolReference40=SOT-23 SS8550 Y2
 ComponentUpdate40=1
 ComponentIsDeviceSheet40=0
 ComponentLibIdentifierKind41=Library Name And Type
-ComponentLibraryIdentifier41=Miscellaneous Devices.IntLib
-ComponentDesignItemID41=Cap
-ComponentSymbolReference41=Cap
+ComponentLibraryIdentifier41=Miscellaneous Devices LC.IntLib
+ComponentDesignItemID41=STM32F103RCT6
+ComponentSymbolReference41=STM32F103RCT6
 ComponentUpdate41=1
 ComponentIsDeviceSheet41=0
 ComponentLibIdentifierKind42=Library Name And Type
@@ -1494,39 +1587,37 @@ ParameterName14=Supplier
 ParameterUpdate14=1
 ParameterName15=SuppliersPartNumber
 ParameterUpdate15=1
-ParameterName16=Value
-ParameterUpdate16=1
 ModelTypeGroup0=PCBLIB
 ModelTypeUpdate0=1
 ModelType0=PCBLIB
 ModelName0=0603_C
 ModelUpdate0=1
 ModelType1=PCBLIB
-ModelName1=0603_L
+ModelName1=0603_LED_S1
 ModelUpdate1=1
 ModelType2=PCBLIB
-ModelName2=0603_LED_S1
+ModelName2=0603_R
 ModelUpdate2=1
 ModelType3=PCBLIB
-ModelName3=0603_R
+ModelName3=0805_LED_S1
 ModelUpdate3=1
 ModelType4=PCBLIB
-ModelName4=0805_L
+ModelName4=0805_R
 ModelUpdate4=1
 ModelType5=PCBLIB
-ModelName5=0805_LED_S1
+ModelName5=ADS1299
 ModelUpdate5=1
 ModelType6=PCBLIB
-ModelName6=ADS1299
+ModelName6=CASE-B_3528
 ModelUpdate6=1
 ModelType7=PCBLIB
-ModelName7=CASE-B_3528
+ModelName7=CC2640R2F
 ModelUpdate7=1
 ModelType8=PCBLIB
-ModelName8=HDR1X4
+ModelName8=HDR1X2
 ModelUpdate8=1
 ModelType9=PCBLIB
-ModelName9=HDR1X5
+ModelName9=HDR1X4
 ModelUpdate9=1
 ModelType10=PCBLIB
 ModelName10=HDR1X6
@@ -1535,54 +1626,57 @@ ModelType11=PCBLIB
 ModelName11=HDR2X10
 ModelUpdate11=1
 ModelType12=PCBLIB
-ModelName12=LQFP-144_20x20x05P
+ModelName12=HDR2X3
 ModelUpdate12=1
 ModelType13=PCBLIB
-ModelName13=PIN-W2/E2.8
+ModelName13=HDR2X5
 ModelUpdate13=1
 ModelType14=PCBLIB
-ModelName14=RAD-0.3
+ModelName14=HDR2X6
 ModelUpdate14=1
 ModelType15=PCBLIB
-ModelName15=SMD-5032_2P
+ModelName15=key_4.5*4.5*3.8
 ModelUpdate15=1
 ModelType16=PCBLIB
-ModelName16=SOD-323
+ModelName16=LQFP-64_10x10x05P
 ModelUpdate16=1
 ModelType17=PCBLIB
-ModelName17=SOIC-16_150mil
+ModelName17=MICRO-USB
 ModelUpdate17=1
 ModelType18=PCBLIB
-ModelName18=SOT-223
+ModelName18=nRF52832
 ModelUpdate18=1
 ModelType19=PCBLIB
-ModelName19=SOT-23(SOT-23-3)
+ModelName19=SMD-5032_2P
 ModelUpdate19=1
 ModelType20=PCBLIB
-ModelName20=SOT-23-5
+ModelName20=SOD-123
 ModelUpdate20=1
 ModelType21=PCBLIB
-ModelName21=SPST-2
+ModelName21=SOD-323
 ModelUpdate21=1
 ModelType22=PCBLIB
-ModelName22=SPX5205
+ModelName22=SOIC-16_150mil
 ModelUpdate22=1
+ModelType23=PCBLIB
+ModelName23=SOT-23(SOT-23-3)
+ModelUpdate23=1
+ModelType24=PCBLIB
+ModelName24=SOT-23-5
+ModelUpdate24=1
+ModelType25=PCBLIB
+ModelName25=SPST-2
+ModelUpdate25=1
 ModelTypeGroup1=SI
 ModelTypeUpdate1=1
-ModelType23=SI
-ModelName23=Cap
-ModelUpdate23=1
-ModelType24=SI
-ModelName24=Connector
-ModelUpdate24=1
+ModelType26=SI
+ModelName26=Connector
+ModelUpdate26=1
 ModelTypeGroup2=SIM
 ModelTypeUpdate2=1
-ModelType25=SIM
-ModelName25=CAP
-ModelUpdate25=1
-ModelType26=SIM
-ModelName26=FUSE
-ModelUpdate26=1
+ModelType27=SIM
+ModelName27=FUSE
+ModelUpdate27=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
