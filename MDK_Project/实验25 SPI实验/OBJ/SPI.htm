@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\SPI.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\SPI.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon May 25 16:53:34 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Jun 12 10:28:15 2020
 <BR><P>
 <H3>Maximum Stack Usage =        108 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -111,8 +111,8 @@ Function Pointers
  <LI><a href="#[38]">TIM8_UP_TIM13_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[40]">UART4_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[41]">UART5_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
- <LI><a href="#[31]">USART1_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
- <LI><a href="#[32]">USART2_IRQHandler</a> from usart.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
+ <LI><a href="#[31]">USART1_IRQHandler</a> from usart.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
+ <LI><a href="#[32]">USART2_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[33]">USART3_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[53]">USART6_IRQHandler</a> from startup_stm32f40_41xxx.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
  <LI><a href="#[7]">UsageFault_Handler</a> from stm32f4xx_it.o(.text) referenced from startup_stm32f40_41xxx.o(RESET)
@@ -367,7 +367,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADS_PowerOnInit
 </UL>
 
-<P><STRONG><a name="[89]"></a>ADS_PowerOnInit</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, ads1299.o(.text))
+<P><STRONG><a name="[89]"></a>ADS_PowerOnInit</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, ads1299.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ADS_PowerOnInit &rArr; ADS_REG &rArr; ADS_SPI
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADS_REG
@@ -411,7 +411,7 @@ Global Symbols
 <P><STRONG><a name="[8e]"></a>ads_data_process</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, ads1299.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ads_data_process &rArr; ADS_Read &rArr; ADS_SPI
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Print
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Print
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADS_Read
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADS_SPI
 </UL>
@@ -467,29 +467,29 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_exit
 </UL>
 
-<P><STRONG><a name="[ce]"></a>fputc</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, usart.o(.text), UNUSED)
+<P><STRONG><a name="[ce]"></a>fputc</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[98]"></a>USART2_sendChar</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, usart.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_Print
+<P><STRONG><a name="[98]"></a>USART1_sendChar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, usart.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_Print
 </UL>
 
-<P><STRONG><a name="[8f]"></a>USART2_Print</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, usart.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART2_Print
+<P><STRONG><a name="[8f]"></a>USART1_Print</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, usart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = USART1_Print
 </UL>
-<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_sendChar
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_sendChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ads_data_process
 </UL>
 
-<P><STRONG><a name="[74]"></a>uart_init</STRONG> (Thumb, 170 bytes, Stack size 40 bytes, usart.o(.text))
+<P><STRONG><a name="[74]"></a>uart_init</STRONG> (Thumb, 172 bytes, Stack size 40 bytes, usart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = uart_init &rArr; USART_Init &rArr; RCC_GetClocksFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Cmd
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ClearFlag
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphClockCmd
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinAFConfig
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHB1PeriphClockCmd
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
@@ -497,8 +497,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[32]"></a>USART2_IRQHandler</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, usart.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART2_IRQHandler &rArr; USART_GetITStatus
+<P><STRONG><a name="[31]"></a>USART1_IRQHandler</STRONG> (Thumb, 122 bytes, Stack size 8 bytes, usart.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART1_IRQHandler &rArr; USART_GetITStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetITStatus
@@ -740,7 +740,7 @@ Global Symbols
 <P><STRONG><a name="[41]"></a>UART5_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f40_41xxx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
-<P><STRONG><a name="[31]"></a>USART1_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f40_41xxx.o(.text))
+<P><STRONG><a name="[32]"></a>USART2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f40_41xxx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(RESET)
 </UL>
 <P><STRONG><a name="[33]"></a>USART3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f40_41xxx.o(.text))
@@ -906,11 +906,11 @@ Global Symbols
 
 <P><STRONG><a name="[7d]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI3_Init
-<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
 <P><STRONG><a name="[92]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTIX_Init
+<BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTIX_Init
 </UL>
 
 <P><STRONG><a name="[a0]"></a>RCC_AHB1PeriphResetCmd</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f4xx_rcc.o(.text), UNUSED)
@@ -1074,7 +1074,7 @@ Global Symbols
 <P><STRONG><a name="[125]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[9e]"></a>USART_ReceiveData</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[126]"></a>USART_SetAddress</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text), UNUSED)
@@ -1118,7 +1118,7 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>USART_GetITStatus</STRONG> (Thumb, 118 bytes, Stack size 16 bytes, stm32f4xx_usart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USART_GetITStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
 <P><STRONG><a name="[134]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, stm32f4xx_usart.o(.text), UNUSED)

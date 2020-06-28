@@ -60,24 +60,28 @@ void ADS_PowerOnInit(void)
     delay_ms(10);
     ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
     delay_ms(10);
-    ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
-    delay_ms(10);
+    
+    buffer = ADS_REG(RREG|ADS_ID,0X00);
+//    printf("the device id is : %x\r\n",buffer);
+    
     /*fc for bias test*/
     ADS_REG(WREG|CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec
     delay_ms(10);//等待内部参考电压稳定
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
-    //ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
-    ADS_REG(WREG|CONFIG2,0xC0);	
+    ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
+    //ADS_REG(WREG|CONFIG2,0xC0);	
     //ADS_REG(WREG|MISC1,0x20);	
 
-    ADS_REG(WREG|CH1SET,0X60);	//amplified x1
-    ADS_REG(WREG|CH2SET,0X65);	//amplified x1
+    ADS_REG(WREG|CH1SET,0X05);	//amplified x1
+    ADS_REG(WREG|CH2SET,0X05);	//amplified x1
     ADS_REG(WREG|CH3SET,0X05);	//amplified x1
     ADS_REG(WREG|CH4SET,0X60);	//amplified x1
     ADS_REG(WREG|CH5SET,0X80);	//amplified x1
     ADS_REG(WREG|CH6SET,0X80);	//amplified x1
     ADS_REG(WREG|CH7SET,0X80);	//amplified x1
     ADS_REG(WREG|CH8SET,0X80);	//amplified x1
+    
+
 
     ADS1299_CS = 1; //取消片选
 }
@@ -140,9 +144,9 @@ void ads_data_process()
 //    }
     char d[2]={0x0d,0x0a};
     char dd[2] = {0x0a,0x0d};
-    USART2_Print((uint8_t*)&d, 2);
-    USART2_Print(DATA_ADS, 27);
-    USART2_Print((uint8_t*)&dd, 2);
+    USART1_Print((uint8_t*)&d, 2);
+    USART1_Print(DATA_ADS, 27);
+    USART1_Print((uint8_t*)&dd, 2);
     
     //USART1_Print((uint8_t*)&ads_data, 22);
     ADS1299_CS = 1; 

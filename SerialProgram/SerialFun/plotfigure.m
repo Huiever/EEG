@@ -1,15 +1,16 @@
 close all;
-a = load('eeg2.txt');
-b = a(:,1)./24;
-c = hp03(b);
+a = load('ads_data1.txt');
+b = a(:,2);
+c = bp(b);
 d = bp10(c);
 e =lp30(d);
-x = e(5000:9000);
+x = b(1000:5000);
 %时域波形
 % subplot(311);
 figure
-t = (0:1/250:length(x)/250 - 1/250);
-plot(t,x);
+% t = (0:1/250:length(x)/250 - 1/250);
+% plot(t,b);
+plot(x);
 xlabel('time/s');
 ylabel('uV');
 title('时域信号');
