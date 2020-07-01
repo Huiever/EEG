@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: eeg_f407.PcbDoc   2020/7/1 ÐÇÆÚÈý  14:03:57
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : eeg_f407-RoundHoles.TXT
+ASCII SlotHoles File : eeg_f407-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.305mm)                                           Round             145       PTH        0.00inch (0.00mm)
+T2      16mil (0.399mm)                                           Slot              4         PTH        0.00inch (0.00mm)
+T3      35mil (0.899mm)                                           Round             56        PTH        0.00inch (0.00mm)
+T4      39mil (1.001mm)                                           Round             6         PTH        0.00inch (0.00mm)
+T5      59mil (1.501mm)                                           Round             10        PTH        0.00inch (0.00mm)
+T6      126mil (3.2mm)                                            Round             4         PTH        0.00inch (0.00mm)
+T7      20mil (0.5mm)                                             Round             4         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              229
+
+Total Processing Time (hh:mm:ss) : 00:00:00
