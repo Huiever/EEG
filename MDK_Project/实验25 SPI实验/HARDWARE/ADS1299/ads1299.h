@@ -41,10 +41,10 @@
 #define	RREG			0X20	//读取001r rrrr 000n nnnn  这里定义的只有高八位，低8位在发送命令时设置
 #define WREG			0X40	//写入010r rrrr 000n nnnn
 
-#define	ADS1299_DRDY 		PCin(0)  		//
+#define	ADS1299_DRDY 		PDin(7)  		//
 #define	ADS1299_RESET 		PCout(6)  		//
-#define	ADS1299_PWDN 		PCout(7)  		//
-#define	ADS1299_CS 		    PCout(12)  		//
+#define	ADS1299_PWDN 		PEout(2)  		//
+#define	ADS1299_CS 		    PEout(3)  		//
 #define	ADS1299_START 		PCout(9)  		//
 
 typedef struct{

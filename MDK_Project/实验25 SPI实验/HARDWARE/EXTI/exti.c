@@ -5,8 +5,8 @@
 #include "usart.h"
 #include "spi.h"
 
-//外部中断2服务程序
-void EXTI0_IRQHandler(void)
+//外部中断7服务程序
+void EXTI7_IRQHandler(void)
 {
 	if (EXTI_GetFlagStatus(EXTI_Line0)==SET)
 	{
@@ -24,16 +24,16 @@ void EXTIX_Init(void)
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);//使能SYSCFG时钟
 	
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource0);//PE2 连接到中断线2
+	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOD, EXTI_PinSource7);//PE2 连接到中断线2
 
     /* 配置EXTI_Line2 */
-    EXTI_InitStructure.EXTI_Line = EXTI_Line0;
+    EXTI_InitStructure.EXTI_Line = EXTI_Line7;
     EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;//中断事件
     EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling; //下降沿触发
     EXTI_InitStructure.EXTI_LineCmd = ENABLE;//中断线使能
     EXTI_Init(&EXTI_InitStructure);//配置
 
-    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;//外部中断2
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQn;//外部中断2
     NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级1
     NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道

@@ -28,24 +28,23 @@ void ads1299_init()
 void ads1299_gpio_init(void){
     GPIO_InitTypeDef  GPIO_InitStructure;
 
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);//使能GPIOC时钟
-
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//使能GPIOC时钟
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//使能GPIOC时钟
     //GPIOC
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_8|GPIO_Pin_12;//PB14
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3;//PB14
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//输出
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-    GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化
+    GPIO_Init(GPIOE, &GPIO_InitStructure);//初始化
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;//输入
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉输入
-    GPIO_Init(GPIOC, &GPIO_InitStructure);//初始化
+    GPIO_Init(GPIOD, &GPIO_InitStructure);//初始化
     
     ADS1299_PWDN = 0;
-    ADS1299_RESET = 1;
     ADS1299_START = 0;
     delay_ms(1000);
 }
@@ -54,15 +53,15 @@ void ads1299_gpio_init(void){
 void ADS_PowerOnInit(void)
 {	u8 buffer;
     ADS1299_PWDN = 1;//上电
-    delay_ms(1000);//wait for stable
+    delay_ms(3000);//wait for stable
     ADS1299_CS = 0; //选中芯片
     ADS_SPI(ADS_RESET);
     delay_ms(10);
     ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
     delay_ms(10);
     
-    buffer = ADS_REG(RREG|ADS_ID,0X00);
-//    printf("the device id is : %x\r\n",buffer);
+    buffer = ADS_REG(RREG|CONFIG3,0X00);
+    printf("the device id is : %x\r\n",buffer);
     
     /*fc for bias test*/
     ADS_REG(WREG|CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec
@@ -70,8 +69,8 @@ void ADS_PowerOnInit(void)
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
     ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
     //ADS_REG(WREG|CONFIG2,0xC0);	
-    //ADS_REG(WREG|MISC1,0x20);	
-
+    ADS_REG(WREG|MISC1,0X20);	//SRB1
+    
     ADS_REG(WREG|CH1SET,0X05);	//amplified x1
     ADS_REG(WREG|CH2SET,0X05);	//amplified x1
     ADS_REG(WREG|CH3SET,0X05);	//amplified x1
