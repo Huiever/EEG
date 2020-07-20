@@ -3,6 +3,7 @@
 #include "sys.h"
 #include "usart.h"
 #include "delay.h"
+#include "led.h"
 
 ads_data_t ads_data = {0x0a0d,0,0,0,0,0,0,0,0,0,0x0d0a};
 
@@ -17,20 +18,22 @@ void ads1299_init()
 {
     ads1299_gpio_init();//初始化ads1299所用的io口
     SPI3_Init();		   			            //初始化SPI
-    SPI3_SetSpeed(SPI_BaudRatePrescaler_2);		//设置为42M时钟,高速模式 
+    SPI3_SetSpeed(SPI_BaudRatePrescaler_8);		//设置为42M时钟,高速模式 
+    delay_ms(10);
     ADS_PowerOnInit(); //上电初始化
-
+    
     ADS1299_CS=0; 
     ADS_SPI(START); //开启转换
-    delay_us(1);
     ADS1299_CS = 1; 
+    
+    LED0 = 0;
 }
 void ads1299_gpio_init(void){
     GPIO_InitTypeDef  GPIO_InitStructure;
 
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//使能GPIOC时钟
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//使能GPIOC时钟
-    //GPIOC
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);//使能GPIOB时钟
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);//使能GPIOB时钟
+    
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2|GPIO_Pin_3;//PB14
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//输出
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
@@ -43,44 +46,47 @@ void ads1299_gpio_init(void){
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉输入
     GPIO_Init(GPIOD, &GPIO_InitStructure);//初始化
-    
+      
     ADS1299_PWDN = 0;
+    ADS1299_RESET = 1;
     ADS1299_START = 0;
-    delay_ms(1000);
+    delay_ms(10);
 }
 
 /**ADS1299上电复位 **/
 void ADS_PowerOnInit(void)
 {	u8 buffer;
     ADS1299_PWDN = 1;//上电
-    delay_ms(3000);//wait for stable
+    delay_ms(1000);//wait for stable
     ADS1299_CS = 0; //选中芯片
     ADS_SPI(ADS_RESET);
     delay_ms(10);
     ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
     delay_ms(10);
-    
-    buffer = ADS_REG(RREG|CONFIG3,0X00);
-    printf("the device id is : %x\r\n",buffer);
-    
+
+    while(ADS_REG(RREG|ID,0X00) != 0x3e){
+        SPI3_Init();		   			            //初始化SPI
+        SPI3_SetSpeed(SPI_BaudRatePrescaler_16);		//设置为42M时钟,高速模式 
+//        printf("The divece ID is : %x\r\n",buffer);
+    }
+
     /*fc for bias test*/
     ADS_REG(WREG|CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec
     delay_ms(10);//等待内部参考电压稳定
+    ADS_REG(WREG|MISC1,0x20);	//SRB1
+    while(ADS_REG(RREG|MISC1,0X00) != 0x20);
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
     ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
-    //ADS_REG(WREG|CONFIG2,0xC0);	
-    ADS_REG(WREG|MISC1,0X20);	//SRB1
-    
-    ADS_REG(WREG|CH1SET,0X05);	//amplified x1
-    ADS_REG(WREG|CH2SET,0X05);	//amplified x1
-    ADS_REG(WREG|CH3SET,0X05);	//amplified x1
-    ADS_REG(WREG|CH4SET,0X60);	//amplified x1
-    ADS_REG(WREG|CH5SET,0X80);	//amplified x1
-    ADS_REG(WREG|CH6SET,0X80);	//amplified x1
-    ADS_REG(WREG|CH7SET,0X80);	//amplified x1
-    ADS_REG(WREG|CH8SET,0X80);	//amplified x1
-    
+//    ADS_REG(WREG|CONFIG2,0xC0);	
 
+    ADS_REG(WREG|CH1SET,0X05);	//amplified x1
+    ADS_REG(WREG|CH2SET,0X60);	//amplified x1
+    ADS_REG(WREG|CH3SET,0X61);	//amplified x1
+    ADS_REG(WREG|CH4SET,0X61);	//amplified x1
+    ADS_REG(WREG|CH5SET,0X00);	//amplified x1
+    ADS_REG(WREG|CH6SET,0X00);	//amplified x1
+    ADS_REG(WREG|CH7SET,0X01);	//amplified x1
+    ADS_REG(WREG|CH8SET,0X01);	//amplified x1
 
     ADS1299_CS = 1; //取消片选
 }

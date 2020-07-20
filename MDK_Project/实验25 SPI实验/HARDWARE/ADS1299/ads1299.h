@@ -3,7 +3,7 @@
 #include "sys.h"
 
 //¼Ä´æÆ÷µØÖ·±í
-#define ADS_ID              0x00
+#define ID              0x00
 #define CONFIG1         0x01
 #define CONFIG2         0x02
 #define CONFIG3			0x03

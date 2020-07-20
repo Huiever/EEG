@@ -1,16 +1,19 @@
 close all;
 a = load('ads_data1.txt');
-b = a(:,2);
-c = bp(b);
-d = bp10(c);
-e =lp30(d);
-x = b(1000:5000);
+b = a(1000:3000,1);
+c = bp2_30(b);
+d = lp80(c);
+e = hp2(d);
+x = b;
 %时域波形
 % subplot(311);
 figure
 % t = (0:1/250:length(x)/250 - 1/250);
 % plot(t,b);
 plot(x);
+% set(gca,'xtick',[0:500:6000]);
+% set(gca,'ytick',[-500:20:500]);
+% axis([0 5000 -200 200])
 xlabel('time/s');
 ylabel('uV');
 title('时域信号');

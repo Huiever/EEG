@@ -5,16 +5,16 @@
 #include "usart.h"
 #include "spi.h"
 
-//外部中断7服务程序
-void EXTI7_IRQHandler(void)
+//外部中断2服务程序
+void EXTI9_5_IRQHandler(void)
 {
-	if (EXTI_GetFlagStatus(EXTI_Line0)==SET)
+	if (EXTI_GetFlagStatus(EXTI_Line7)==SET)
 	{
         ads_data_process();//当DRDY拉低时获取ads1299的数据
     }
-	EXTI_ClearITPendingBit(EXTI_Line0);//清除LINE2上的中断标志位 
+	EXTI_ClearITPendingBit(EXTI_Line7);//清除LINE2上的中断标志位 
 }
-	   
+	  
 //外部中断初始化程序
 //初始化PE2~4,PA0为中断输入.
 void EXTIX_Init(void)
