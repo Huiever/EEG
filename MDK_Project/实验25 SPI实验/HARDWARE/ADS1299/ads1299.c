@@ -4,8 +4,11 @@
 #include "usart.h"
 #include "delay.h"
 #include "led.h"
-
-ads_data_t ads_data = {0x0a0d,0,0,0,0,0,0,0,0,0,0x0d0a};
+#include "string.h"
+ads_data_t ads_data = {0xa0,0,
+                       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+                       0,0,0,0,0,0,
+                       0xc0};
 
 void ADS1299_RREG(u8 ReadAddr, u8 pBuffer);
 void ADS_PowerOnInit(void);
@@ -13,7 +16,8 @@ unsigned char ADS_SPI(unsigned char com);
 unsigned char ADS_REG(unsigned char com,unsigned data);
 void ads1299_gpio_init(void);
 
-
+void ads1299_reset(void);
+                       
 void ads1299_init()
 {
     ads1299_gpio_init();//初始化ads1299所用的io口
@@ -21,8 +25,8 @@ void ads1299_init()
     SPI3_SetSpeed(SPI_BaudRatePrescaler_8);		//设置为42M时钟,高速模式 
     delay_ms(10);
     ADS_PowerOnInit(); //上电初始化
-    
-    ADS1299_CS=0; 
+    ads1299_reset();
+    ADS1299_CS = 0; 
     ADS_SPI(START); //开启转换
     ADS1299_CS = 1; 
     
@@ -76,17 +80,32 @@ void ADS_PowerOnInit(void)
     ADS_REG(WREG|MISC1,0x20);	//SRB1
     while(ADS_REG(RREG|MISC1,0X00) != 0x20);
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
-    ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
-//    ADS_REG(WREG|CONFIG2,0xC0);	
+    while(ADS_REG(RREG|CONFIG1,0X00) != 0x96){
+        ADS_REG(WREG|CONFIG1,0x96);	//amplified x1
+    };
+//        ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
 
-    ADS_REG(WREG|CH1SET,0X05);	//amplified x1
-    ADS_REG(WREG|CH2SET,0X60);	//amplified x1
-    ADS_REG(WREG|CH3SET,0X61);	//amplified x1
-    ADS_REG(WREG|CH4SET,0X61);	//amplified x1
-    ADS_REG(WREG|CH5SET,0X00);	//amplified x1
-    ADS_REG(WREG|CH6SET,0X00);	//amplified x1
-    ADS_REG(WREG|CH7SET,0X01);	//amplified x1
-    ADS_REG(WREG|CH8SET,0X01);	//amplified x1
+    while(ADS_REG(RREG|CONFIG2,0X00) != 0xC0){
+        ADS_REG(WREG|CONFIG2,0xC0);	//amplified x1
+    };
+    
+    
+    while(ADS_REG(RREG|CH1SET,0X00) != 0x60){
+        ADS_REG(WREG|CH1SET,0X60);	//amplified x1
+    };    
+    while(ADS_REG(RREG|CH2SET,0X00) != 0x60){
+        ADS_REG(WREG|CH2SET,0X60);	//amplified x1
+    };
+    
+    ADS_REG(WREG|CH3SET,0X60);	//amplified x1
+    ADS_REG(WREG|CH4SET,0x60);	//amplified x1
+    ADS_REG(WREG|CH5SET,0X80);	//amplified x1
+    ADS_REG(WREG|CH6SET,0X80);	//amplified x1
+    ADS_REG(WREG|CH7SET,0X80);	//amplified x1
+    ADS_REG(WREG|CH8SET,0X80);	//amplified x1
+    while(ADS_REG(RREG|CH8SET,0X00) != 0x80){
+        ADS_REG(WREG|CH8SET,0X80);	//amplified x1
+    };
 
     ADS1299_CS = 1; //取消片选
 }
@@ -128,16 +147,20 @@ unsigned char ADS_REG(unsigned char com,unsigned data)
 	}
 	return (data_return);
 }
+u8 stream_data = 0;
 
 void ads_data_process()
 { 
-    int j = 0;
+    static int count = 0;
     static uint8_t DATA_ADS[27]={0x00};
     static uint32_t HEX[8] = {0};//未转换的电压值u16 Data = 0;
-
+    static uint8_t DATA_REC[27] = {0x00};
     ADS1299_CS = 0;
     ADS_SPI (RDATA);
-    ADS_Read(DATA_ADS);
+    
+    ADS_Read(DATA_REC);
+    memcpy(ads_data.eeg_data, DATA_REC+3,24);
+    memcpy(uart_send_data, &ads_data, 33);
 
 //    for(int i = 0; i < 8; i++){
 //        j = (i+1) * 3;
@@ -147,13 +170,42 @@ void ads_data_process()
 //        else
 //            ads_data.data[i] = HEX[i] * (4500.0)/8388607;	
 //    }
-    char d[2]={0x0d,0x0a};
-    char dd[2] = {0x0a,0x0d};
-    USART1_Print((uint8_t*)&d, 2);
-    USART1_Print(DATA_ADS, 27);
-    USART1_Print((uint8_t*)&dd, 2);
+
+//    memcpy(eeg_data_buff_big + count*31,&ads_data,SEND_BUF_SIZE);  
+//    count++;
+//    if(count >= 10){
+//        count = 0;
+//        USART1_Print(eeg_data_buff_big, SEND_BUF_SIZE_BIG);
+//    }
+
+    USART1_Print((uint8_t*)&ads_data, SEND_BUF_SIZE);
     
-    //USART1_Print((uint8_t*)&ads_data, 22);
-    ADS1299_CS = 1; 
-    
+    if(stream_data != 0){
+        MYDMA_Enable(DMA2_Stream7,SEND_BUF_SIZE);
+    }
+   
+    ADS1299_CS = 1;    
+}
+
+void ads1299_reset(void)
+{
+        printf("OpenBCI V3 8-16 channel\r\n");
+        printf("On Board ADS1299 Device ID: 0x3E\r\n");
+        printf("LIS3DH Device ID: 0x00\r\n");
+        printf("Firmware: v0.0.1\r\n");
+        printf("$$$");
+}
+
+void processChar(char character){
+    switch(character){
+        case 'v':
+            ads1299_reset();
+            break;
+        case 'b':
+            stream_data = 1;
+            break;
+        default:
+            ;
+            
+    }
 }

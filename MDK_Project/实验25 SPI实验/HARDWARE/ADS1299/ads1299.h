@@ -48,13 +48,15 @@
 #define	ADS1299_START 		PCout(9)  		//
 
 typedef struct{
-    uint16_t start_code;
-    uint16_t status;
-    float data[8];
-    uint16_t end_code;
+    uint8_t header;
+    uint8_t sample_number;
+    uint8_t eeg_data[24];
+    uint8_t aux_data[6];
+    uint8_t footer;
 }ads_data_t;
-
+extern ads_data_t ads_data;
 void ads1299_init();
 void ads_data_process();
 
+void processChar(char character);
 #endif

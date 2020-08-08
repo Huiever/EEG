@@ -1,10 +1,9 @@
 #include "sys.h"
 #include "usart.h"	
+#include "ads1299.h"
 
-//如果使用ucos,则包括下面的头文件即可.
-#if SYSTEM_SUPPORT_UCOS
-#include "includes.h"					//ucos 使用	  
-#endif
+u8 uart_send_data[SEND_BUF_SIZE];
+
 
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
 #if 1
@@ -34,10 +33,6 @@ int fputc(int ch, FILE *f)
 //串口1中断服务程序
 //注意,读取USARTx->SR能避免莫名其妙的错误   	
 u8 USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
-//接收状态
-//bit15，	接收完成标志
-//bit14，	接收到0x0d
-//bit13~0，	接收到的有效字节数目
 u16 USART_RX_STA=0;       //接收状态标记	
 
 
@@ -51,7 +46,7 @@ void USART1_Print(uint8_t* ch, int len) {
         USART1_sendChar((u8)ch[i]);
     }
 }
-
+static void USART1_DMA_Tx_Config(u32 mar,u16 ndtr);
 
 //初始化IO 串口1 
 //bound:波特率
@@ -89,7 +84,7 @@ void uart_init(u32 bound){
 
     USART_ClearFlag(USART1, USART_FLAG_TC);
 
-    #if EN_USART1_RX	
+#if EN_USART1_RX	
     USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);//开启相关中断
 
     //Usart1 NVIC 配置
@@ -99,6 +94,11 @@ void uart_init(u32 bound){
     NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			//IRQ通道使能
     NVIC_Init(&NVIC_InitStructure);	//根据指定的参数初始化VIC寄存器、
 
+#endif
+
+#if USE_USART_DMA_TX   
+    USART1_DMA_Tx_Config((u32)uart_send_data,SEND_BUF_SIZE);// 开启串口DMA发送
+    USART_DMACmd(USART1,USART_DMAReq_Tx,ENABLE);  //使能串口1的DMA发送
 #endif
 	
 }
@@ -113,33 +113,106 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 	if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
 	{
 		Res =USART_ReceiveData(USART1);//(USART1->DR);	//读取接收到的数据
-		
-		if((USART_RX_STA&0x8000)==0)//接收未完成
-		{
-			if(USART_RX_STA&0x4000)//接收到了0x0d
-			{
-				if(Res!=0x0a)USART_RX_STA=0;//接收错误,重新开始
-				else USART_RX_STA|=0x8000;	//接收完成了 
-			}
-			else //还没收到0X0D
-			{	
-				if(Res==0x0d)USART_RX_STA|=0x4000;
-				else
-				{
-					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res ;
-					USART_RX_STA++;
-					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//接收数据错误,重新开始接收	  
-				}		 
-			}
-		}   		 
+		processChar(Res);
+        
+        
+//		if((USART_RX_STA&0x8000)==0)//接收未完成
+//		{
+//			if(USART_RX_STA&0x4000)//接收到了0x0d
+//			{
+//				if(Res!=0x0a)USART_RX_STA=0;//接收错误,重新开始
+//				else USART_RX_STA|=0x8000;	//接收完成了 
+//			}
+//			else //还没收到0X0D
+//			{	
+//				if(Res==0x0d)USART_RX_STA|=0x4000;
+//				else
+//				{
+//					USART_RX_BUF[USART_RX_STA&0X3FFF]=Res ;
+//					USART_RX_STA++;
+//					if(USART_RX_STA>(USART_REC_LEN-1))USART_RX_STA=0;//接收数据错误,重新开始接收	  
+//				}		 
+//			}
+//		}   		 
   } 
-#ifdef OS_TICKS_PER_SEC	 	//如果时钟节拍数定义了,说明要使用ucosII了.
-	OSIntExit();  											 
-#endif
+
 } 
 #endif	
 
+
+#if USE_USART_DMA_TX
+static void USART1_DMA_Tx_Config(u32 mar,u16 ndtr)
+{
+    DMA_InitTypeDef DMA_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+    
+    // 开启DMA时钟
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2,ENABLE);//DMA1时钟使能 
+    DMA_DeInit(DMA2_Stream7);
+
+    while (DMA_GetCmdStatus(DMA2_Stream7) != DISABLE){}//等待DMA可配置 
+
+    /* 配置 DMA Stream */
+    DMA_InitStructure.DMA_Channel = DMA_Channel_4;  //通道选择
+    DMA_InitStructure.DMA_PeripheralBaseAddr = (u32)&USART1->DR;//DMA外设地址
+    DMA_InitStructure.DMA_Memory0BaseAddr = mar;//DMA 存储器0地址
+    DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;//存储器到外设模式
+    DMA_InitStructure.DMA_BufferSize = ndtr;//数据传输量 
+    DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;//外设非增量模式
+    DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;//存储器增量模式
+    DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;//外设数据长度:8位
+    DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;//存储器数据长度:8位
+    DMA_InitStructure.DMA_Mode = DMA_Mode_Normal;// 使用循环模式 
+    DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;//中等优先级
+    DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;         
+    DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
+    DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;//存储器突发单次传输
+    DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;//外设突发单次传输
+    DMA_Init(DMA2_Stream7, &DMA_InitStructure);//初始化DMA Stream
+
+    // 清除DMA所有标志
+    DMA_ClearFlag(DMA2_Stream7,DMA_FLAG_TCIF7);
+    DMA_ITConfig(DMA2_Stream7, DMA_IT_TE, ENABLE);
+    
+    /* Enable the DMA Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = DMA2_Stream7_IRQn;   // 发送DMA通道的中断配置 
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;  // 优先级设置 
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0; 
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; 
+    NVIC_Init(&NVIC_InitStructure); 
+    DMA_ITConfig(DMA2_Stream7, DMA_IT_TC, ENABLE);// 开启DMA通道传输完成中断 
+    // 不使能DMA
+    DMA_Cmd (DMA2_Stream7,DISABLE);
+}
+
+//开启一次DMA传输
+//DMA_Streamx:DMA数据流,DMA1_Stream0~7/DMA2_Stream0~7 
+//ndtr:数据传输量  
+void MYDMA_Enable(DMA_Stream_TypeDef *DMA_Streamx,u16 ndtr)
+{
  
+//	DMA_Cmd(DMA_Streamx, DISABLE);                      //关闭DMA传输 
+//	
+
+    while (DMA_GetCmdStatus(DMA_Streamx) != DISABLE){
+
+    }	//确保DMA可以被设置  
+		
+	DMA_SetCurrDataCounter(DMA_Streamx,ndtr);          //数据传输量  
+ 
+	DMA_Cmd(DMA_Streamx, ENABLE);                      //开启DMA传输 
+}	
 
 
+//DMA 发送应用源码 
+void DMA2_Stream7_IRQHandler(void) 
+{      
+    if(DMA_GetITStatus(DMA2_Stream7, DMA_IT_TCIF7)) 
+    { 
+//        printf("DMA1中断\r\n"); 
+        DMA_ClearFlag(DMA2_Stream7, DMA_IT_TCIF7);// 清除标志 
+        DMA_Cmd(DMA2_Stream7, DISABLE);           // 关闭DMA通道 
+    } 
+} 
 
+#endif
