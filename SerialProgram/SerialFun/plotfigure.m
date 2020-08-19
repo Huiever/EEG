@@ -1,11 +1,11 @@
 close all;
 a = load('ads_data1.txt');
-b = a(1:3000,1)./24;
+b = a(20000:26000,3)./24;
 c = bp50(b);
-d = lp80(c);
+d = bp1_50(c);
 e = hp2(d);
 f = bp50(e);
-x = e(1:end);
+x = e(1000:end);
 fid = fopen('d:\test.bin','wb');
 fwrite(fid,b)
 % ±”Ú≤®–Œ

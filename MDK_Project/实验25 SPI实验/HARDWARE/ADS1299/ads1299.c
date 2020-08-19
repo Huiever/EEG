@@ -9,7 +9,7 @@ ads_data_t ads_data = {0xa0,0,
                        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
                        0,0,0,0,0,0,
                        0xc0};
-
+u8 stream_data = 0;         
 void ADS1299_RREG(u8 ReadAddr, u8 pBuffer);
 void ADS_PowerOnInit(void);
 unsigned char ADS_SPI(unsigned char com);
@@ -17,12 +17,11 @@ unsigned char ADS_REG(unsigned char com,unsigned data);
 void ads1299_gpio_init(void);
 
 void ads1299_reset(void);
-                       
+              
 void ads1299_init()
 {
     ads1299_gpio_init();//初始化ads1299所用的io口
-    SPI3_Init();		   			            //初始化SPI
-    SPI3_SetSpeed(SPI_BaudRatePrescaler_8);		//设置为42M时钟,高速模式 
+    SPI3_Init();		   			            //初始化SPI,42M时钟
     delay_ms(10);
     ADS_PowerOnInit(); //上电初始化
     ads1299_reset();
@@ -67,44 +66,54 @@ void ADS_PowerOnInit(void)
     delay_ms(10);
     ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
     delay_ms(10);
-
+//    buffer = ADS_REG(RREG|ID,0X00);
+//    printf("The divece ID is : %x\r\n",buffer);
     while(ADS_REG(RREG|ID,0X00) != 0x3e){
-        SPI3_Init();		   			            //初始化SPI
-        SPI3_SetSpeed(SPI_BaudRatePrescaler_16);		//设置为42M时钟,高速模式 
-//        printf("The divece ID is : %x\r\n",buffer);
+        SPI3_Init();		   			            //初始化SPI,42M时钟
     }
 
     /*fc for bias test*/
     ADS_REG(WREG|CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec
     delay_ms(10);//等待内部参考电压稳定
-    ADS_REG(WREG|MISC1,0x20);	//SRB1
-    while(ADS_REG(RREG|MISC1,0X00) != 0x20);
+    
+    while(ADS_REG(RREG|MISC1,0X00) != 0x20){
+        ADS_REG(WREG|MISC1,0x20);	//SRB1
+    };
+    
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
     while(ADS_REG(RREG|CONFIG1,0X00) != 0x96){
         ADS_REG(WREG|CONFIG1,0x96);	//amplified x1
     };
-//        ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
+//  ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
 
     while(ADS_REG(RREG|CONFIG2,0X00) != 0xC0){
         ADS_REG(WREG|CONFIG2,0xC0);	//amplified x1
     };
     
-    
-    while(ADS_REG(RREG|CH1SET,0X00) != 0x60){
-        ADS_REG(WREG|CH1SET,0X60);	//amplified x1
+//各通道配置    
+    while(ADS_REG(RREG|CH1SET,0X00) != 0x80){
+        ADS_REG(WREG|CH1SET,0X80);	//off
     };    
     while(ADS_REG(RREG|CH2SET,0X00) != 0x60){
-        ADS_REG(WREG|CH2SET,0X60);	//amplified x1
+        ADS_REG(WREG|CH2SET,0X60);	//on
+    };   
+    while(ADS_REG(RREG|CH3SET,0X00) != 0x60){
+        ADS_REG(WREG|CH3SET,0X60);	//on
     };
-    
-    ADS_REG(WREG|CH3SET,0X60);	//amplified x1
-    ADS_REG(WREG|CH4SET,0x60);	//amplified x1
-    ADS_REG(WREG|CH5SET,0X80);	//amplified x1
-    ADS_REG(WREG|CH6SET,0X80);	//amplified x1
-    ADS_REG(WREG|CH7SET,0X80);	//amplified x1
-    ADS_REG(WREG|CH8SET,0X80);	//amplified x1
+    while(ADS_REG(RREG|CH4SET,0X00) != 0x80){
+        ADS_REG(WREG|CH4SET,0X80);	//off
+    };    
+    while(ADS_REG(RREG|CH5SET,0X00) != 0x80){
+        ADS_REG(WREG|CH5SET,0X80);	//off
+    };   
+    while(ADS_REG(RREG|CH6SET,0X00) != 0x80){
+        ADS_REG(WREG|CH6SET,0X80);	//off
+    };
+    while(ADS_REG(RREG|CH7SET,0X00) != 0x80){
+        ADS_REG(WREG|CH7SET,0X80);	//off
+    };   
     while(ADS_REG(RREG|CH8SET,0X00) != 0x80){
-        ADS_REG(WREG|CH8SET,0X80);	//amplified x1
+        ADS_REG(WREG|CH8SET,0X80);	//off
     };
 
     ADS1299_CS = 1; //取消片选
@@ -147,7 +156,7 @@ unsigned char ADS_REG(unsigned char com,unsigned data)
 	}
 	return (data_return);
 }
-u8 stream_data = 0;
+
 
 void ads_data_process()
 { 
@@ -160,7 +169,8 @@ void ads_data_process()
     
     ADS_Read(DATA_REC);
     memcpy(ads_data.eeg_data, DATA_REC+3,24);
-    memcpy(uart_send_data, &ads_data, 33);
+    memcpy(uart_send_data, &ads_data, 33);    
+    ads_data.sample_number = count++;
 
 //    for(int i = 0; i < 8; i++){
 //        j = (i+1) * 3;
@@ -178,7 +188,7 @@ void ads_data_process()
 //        USART1_Print(eeg_data_buff_big, SEND_BUF_SIZE_BIG);
 //    }
 
-    USART1_Print((uint8_t*)&ads_data, SEND_BUF_SIZE);
+//    USART1_Print((uint8_t*)&ads_data, SEND_BUF_SIZE);
     
     if(stream_data != 0){
         MYDMA_Enable(DMA2_Stream7,SEND_BUF_SIZE);

@@ -1,9 +1,10 @@
-Output: Bill of Materials
-Type  : BOM
+Output: Generates pick and place files
+Type  : Pick Place
 From  : Variant [[No Variations]] of Project [EEG.PrjPCB]
+   Generated File[Pick Place for EEG_V3.0.csv]
 
 
-Files Generated   : 0
+Files Generated   : 1
 Documents Printed : 0
 
-Finished Output Generation At 14:07:54 On 2020/7/1 星期三
+Finished Output Generation At 13:53:53 On 2020/8/19 星期三

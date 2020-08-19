@@ -32,21 +32,19 @@ compiling ads1299.c...
   void ads1299_init();
 ..\HARDWARE\ADS1299\ads1299.h(59): warning:  #1295-D: Deprecated declaration ads_data_process - give arg types
   void ads_data_process();
-..\HARDWARE\ADS1299\ads1299.c(62): warning:  #177-D: variable "buffer"  was declared but never referenced
+..\HARDWARE\ADS1299\ads1299.c(61): warning:  #177-D: variable "buffer"  was declared but never referenced
   {	u8 buffer;
-..\HARDWARE\ADS1299\ads1299.c(154): warning:  #177-D: variable "count"  was declared but never referenced
-      static int count = 0;
-..\HARDWARE\ADS1299\ads1299.c(155): warning:  #177-D: variable "DATA_ADS"  was declared but never referenced
+..\HARDWARE\ADS1299\ads1299.c(164): warning:  #177-D: variable "DATA_ADS"  was declared but never referenced
       static uint8_t DATA_ADS[27]={0x00};
-..\HARDWARE\ADS1299\ads1299.c(156): warning:  #177-D: variable "HEX"  was declared but never referenced
+..\HARDWARE\ADS1299\ads1299.c(165): warning:  #177-D: variable "HEX"  was declared but never referenced
       static uint32_t HEX[8] = {0};//未转换的电压值u16 Data = 0;
-..\HARDWARE\ADS1299\ads1299.c(211): warning:  #1-D: last line of file ends without a newline
+..\HARDWARE\ADS1299\ads1299.c(221): warning:  #1-D: last line of file ends without a newline
   }
-..\HARDWARE\ADS1299\ads1299.c: 7 warnings, 0 errors
+..\HARDWARE\ADS1299\ads1299.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=9728 RO-data=424 RW-data=88 ZI-data=1952  
+Program Size: Code=9792 RO-data=424 RW-data=88 ZI-data=1952  
 FromELF: creating hex file...
-"..\OBJ\SPI.axf" - 0 Error(s), 7 Warning(s).
+"..\OBJ\SPI.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -60,7 +58,7 @@ Package Vendor: Keil
   D:\Program cache\KeilPacks\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

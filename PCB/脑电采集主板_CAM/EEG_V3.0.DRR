@@ -1,0 +1,20 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: EEG_V3.0.PcbDoc   2020/8/19 ÐÇÆÚÈý  13:52:46
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : EEG_V3.0-RoundHoles.TXT
+ASCII SlotHoles File : EEG_V3.0-SlotHoles.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.305mm)                                           Round             267       PTH        0.00inch (0.00mm)
+T2      16mil (0.399mm)                                           Slot              2         PTH        0.00inch (0.00mm)
+T3      35mil (0.899mm)                                           Round             38        PTH        0.00inch (0.00mm)
+T4      39mil (1.001mm)                                           Round             6         PTH        0.00inch (0.00mm)
+T5      122mil (3.099mm)                                          Round             4         PTH        0.00inch (0.00mm)
+T6      20mil (0.5mm)                                             Round             2         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              319
+
+Total Processing Time (hh:mm:ss) : 00:00:00
