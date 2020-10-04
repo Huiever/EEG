@@ -42,10 +42,10 @@
 #define WREG			0X40	//–¥»Î010r rrrr 000n nnnn
 
 #define	ADS1299_DRDY 		PDin(7)  		//
-#define	ADS1299_RESET 		PCout(6)  		//
+#define	ADS1299_RESET 		PDout(0)  		//
 #define	ADS1299_PWDN 		PEout(2)  		//
 #define	ADS1299_CS 		    PEout(3)  		//
-#define	ADS1299_START 		PCout(9)  		//
+#define	ADS1299_START 		PBout(6)  		//
 
 typedef struct{
     uint8_t header;

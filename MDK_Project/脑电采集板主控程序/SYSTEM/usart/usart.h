@@ -10,7 +10,7 @@
 #define EN_USART1_RX 			1		//使能（1）/禁止（0）串口1接收
 
 #define USE_USART_DMA_RX        0
-#define USE_USART_DMA_TX        1
+#define USE_USART_DMA_TX        0
 #define DEBUG_USARTx            USART1
 
 #define SEND_BUF_SIZE 33	//发送数据长度,最好等于sizeof(TEXT_TO_SEND)+2的整数倍.
