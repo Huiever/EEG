@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER,__FPU_USED,__FPU_PRESENT,ARM_MATH_CM4,__CC_ARM,ARM_MATH_MATRIX_CHECK,ARM_MATH_ROUNDING</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\KEY;..\HARDWARE\SPI;..\HARDWARE\W25QXX;..\FWLIB\inc;..\HARDWARE\ADS1299;..\HARDWARE\EXTI;..\HARDWARE\BLE</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\KEY;..\HARDWARE\SPI;..\HARDWARE\IMU;..\FWLIB\inc;..\HARDWARE\ADS1299;..\HARDWARE\EXTI;..\HARDWARE\BLE;..\HARDWARE\IIC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -436,6 +436,16 @@
               <FileName>ble.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\BLE\ble.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\IMU\imu.c</FilePath>
+            </File>
+            <File>
+              <FileName>myiic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\IIC\myiic.c</FilePath>
             </File>
           </Files>
         </Group>

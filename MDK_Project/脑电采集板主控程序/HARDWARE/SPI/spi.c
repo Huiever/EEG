@@ -1,4 +1,6 @@
 #include "spi.h"
+#include "sys.h"
+
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F407开发板
@@ -11,13 +13,37 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2014-2024
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 	 
-
+#define  AFR_Pin(x) x * 4
 
 //以下是SPI模块的初始化代码，配置成主机模式 						  
 //SPI口初始化
 //这里针是对SPI1的初始化
 void SPI1_Init(void)
-{	 
+{	
+// RCC->AHB1ENR |= (RCC_AHB1ENR_GPIOBEN);
+// // GPIOB
+//    // Set Alternate Function mode for ADS1299 SPI's - PB3, PB4, PB5; PB6 and PB7 as GPIO Output
+//    GPIOB->MODER |= (GPIO_MODER_MODER3_1 | GPIO_MODER_MODER4_1 |
+//                     GPIO_MODER_MODER5_1);
+//    // Set fast speed for PB3, PB4, PB5
+//    GPIOB->OSPEEDR |= (GPIO_OSPEEDER_OSPEEDR3_1 | GPIO_OSPEEDER_OSPEEDR4_1 |
+//                       GPIO_OSPEEDER_OSPEEDR5_1);
+//    // WTF PB4 IS PULLDOWN
+//    GPIOB->PUPDR = 0x0;
+
+//    // Set SPI1 for PB3, PB4, PB5
+//    GPIOB->AFR[0] |= (GPIO_AF_SPI1 << AFR_Pin(3) | GPIO_AF_SPI1 << AFR_Pin(4) |
+//                      GPIO_AF_SPI1 << AFR_Pin(5));  
+
+
+    // Enable SPI1 Bus
+///    RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
+    // Configure & Enable SPI1
+    // CPHA = 1; CPOL = 0; MASTER; BR = 84Mhz/8 = 10.5Mhz
+//    SPI1->CR1 = (SPI_CR1_CPHA | SPI_CR1_MSTR | SPI_CR1_BR_1 | SPI_CR1_BR_0 |
+//                 SPI_CR1_SPE | SPI_CR1_SSI  | SPI_CR1_SSM);
+
+
   GPIO_InitTypeDef  GPIO_InitStructure;
   SPI_InitTypeDef  SPI_InitStructure;
 	
@@ -46,7 +72,7 @@ void SPI1_Init(void)
 	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;		//串行同步时钟的空闲状态为高电平
 	SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;	//串行同步时钟的第二个跳变沿（上升或下降）数据被采样
 	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;		//NSS信号由硬件（NSS管脚）还是软件（使用SSI位）管理:内部NSS信号有SSI位控制
-	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;		//定义波特率预分频的值:波特率预分频值为256
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;		//定义波特率预分频的值:波特率预分频值为256
 	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;	//指定数据传输从MSB位还是LSB位开始:数据传输从MSB位开始
 	SPI_InitStructure.SPI_CRCPolynomial = 7;	//CRC值计算的多项式
 	SPI_Init(SPI1, &SPI_InitStructure);  //根据SPI_InitStruct中指定的参数初始化外设SPIx寄存器

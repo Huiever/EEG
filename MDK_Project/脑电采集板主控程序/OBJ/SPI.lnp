@@ -9,6 +9,8 @@
 "..\obj\ads1299.o"
 "..\obj\exti.o"
 "..\obj\ble.o"
+"..\obj\imu.o"
+"..\obj\myiic.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"

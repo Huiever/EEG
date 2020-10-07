@@ -14,10 +14,10 @@
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 	
  	    													  
-//void SPI3_Init(void);			 //初始化SPI3口
-//void SPI3_SetSpeed(u8 SpeedSet); //设置SPI3速度   
-//u8 SPI3_ReadWriteByte(u8 TxData);//SPI3总线读写一个字节
-//u8 SPI3_ReadWriteBytes(u8 TxData,u8 Num);
+//void SPI1_Init(void);			 //初始化SPI1口
+//void SPI1_SetSpeed(u8 SpeedSet); //设置SPI1速度   
+//u8 SPI1_ReadWriteByte(u8 TxData);//SPI1总线读写一个字节
+//u8 SPI1_ReadWriteBytes(u8 TxData,u8 Num);
 //unsigned char ADS1x9x_SPI_Data ( unsigned char Data);
 
  	    													  

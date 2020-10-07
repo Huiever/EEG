@@ -16,20 +16,61 @@ void ADS_PowerOnInit(void);
 unsigned char ADS_SPI(unsigned char com);
 unsigned char ADS_REG(unsigned char com,unsigned data);
 void ads1299_gpio_init(void);
+                       
+uint8_t SPI_TX(uint8_t DATA)
+{
+    // SEND DATA
+    SPI1->DR = (uint8_t)DATA;
 
-void ads1299_reset(void);
-              
+    // WAIT UNTIL TRANSMIT IS COMPLETED
+    while (!(SPI1->SR & SPI_I2S_FLAG_TXE));
+    // WAIT UNTIL DATA RECIEVE IS COMPLETED
+    while (!(SPI1->SR & SPI_I2S_FLAG_RXNE));
+    // WAIT UNTIL SPI IS NOT BUSY
+    while (SPI1->SR & SPI_I2S_FLAG_BSY);
+    // WAIT 2uS - Give the chip some time 2 sort things out
+    delay_us(2);
+    // RETURN RECIEVED DATA
+    return (SPI1->DR);
+}  
+void ads1299_write_reg(uint8_t ADDR, uint8_t VAL)
+{
+    
+    // SEND FIRST BYTE: 0x2 | ADDR
+    SPI_TX(WREG | ADDR);
+    // SEND SECOND BYTE: NUMBER_TO_WRITE
+    SPI_TX(0x00);
+    // SEND VALUE TO WRITE
+    SPI_TX(VAL);
+    // WAIT 2*TCLK'S = 888ns = 1us
+    delay_us(1);
+    ;
+}
+ uint8_t ads1299_read_reg(uint8_t ADDR)
+{
+    
+    // SEND FIRST BYTE: 0x2 | ADDR
+    SPI_TX(RREG|ADDR);
+    // SEND SECOND BYTE: NUMBER_TO_READ -- pretty much always 0x0
+    SPI_TX(0x00);
+    // SEND A DUMMY BYTE TO RECIEVE DATA
+    uint8_t RESP = SPI_TX(0x00);
+
+    // WAIT 2*TCLK'S = 888ns = 1us
+    delay_us(2);
+    // Return read value
+    ;
+    return (RESP);
+}
+
+   void ads1299_reset(void);        
 void ads1299_init()
 {
-    ads1299_gpio_init();//初始化ads1299所用的io口
     SPI1_Init();		   			            //初始化SPI,42M时钟
-  
+    ads1299_gpio_init();//初始化ads1299所用的io口
     ADS_PowerOnInit(); //上电初始化
-    ads1299_reset();
-    //ADS1299_CS = 0; 
-    ADS_SPI(START); //开启转换
-    //ADS1299_CS = 1; 
-    
+    ads1299_reset(); 
+    ADS_SPI(START); //开启转换   
     LED0 = 0;
 }
 void ads1299_gpio_init(void){
@@ -67,102 +108,127 @@ void ads1299_gpio_init(void){
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉输入
     GPIO_Init(GPIOD, &GPIO_InitStructure);//初始化
+    
+    
     ADS1299_CS = 0; 
     ADS1299_PWDN = 0;
+    delay_ms(1000);//wait for stable
+    ADS1299_RESET = 0;
+    delay_us(4);
     ADS1299_RESET = 1;
+    delay_us(20);
     ADS1299_START = 0;
 }
 
 /**ADS1299上电复位 **/
 void ADS_PowerOnInit(void)
 {	u8 buffer;
+    
+//    delay_ms(40);//wait for stable
+//    ADS1299_PWDN = 0;//上电
+//    delay_us(2);//wait for stable
+//    ADS1299_PWDN = 1;//上电
+//    delay_us(10);//wait for stable
+//    
+//        delay_ms(40);//wait for stable
+//    ADS1299_PWDN = 0;//上电
+//    delay_us(2);//wait for stable
+//    ADS1299_PWDN = 1;//上电
+//    delay_us(10);//wait for stable
+    
     ADS1299_PWDN = 1;//上电
     delay_ms(1000);//wait for stable
-    ADS1299_CS = 0; //选中芯片
+
     delay_ms(100);//wait for stable
-
-    ADS_SPI(ADS_RESET);
-    delay_ms(100);
-    ADS_SPI(START); //开启转换
-    delay_ms(100);
-    ADS_SPI(SDATAC);//RDATAC模式下，RREG会被忽略
-
-
+    SPI_TX(ADS_RESET);
+    delay_us(12);   
+    SPI_TX(SDATAC);//RDATAC模式下，RREG会被忽略 
+    delay_ms(110);
     
-    delay_ms(10);
-
     while(buffer != 0x3e){
-        SPI1_Init();		   			            //初始化SPI,42M时钟
-        delay_ms(50);
-        buffer = ADS_REG(RREG|ID,0X00);   
+        //SPI1_Init();		   			            //初始化SPI,42M时钟
+        //delay_ms(50);
+        buffer = ads1299_read_reg(ID);   
         printf("The divece ID is : %x\r\n",buffer);
     }
-
+    
     /*fc for bias test*/
-    ADS_REG(WREG|CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec
+    while(ads1299_read_reg(RREG+CONFIG3)!=0xe0){
+        ads1299_write_reg(WREG+CONFIG3,0Xe0);	//使用内部参考电压，BIASREF使用内部产生（AVDD+AVSS）/2，使能BIAS buffer ec
+    };
     delay_ms(10);//等待内部参考电压稳定
-    ADS_REG(WREG|MISC1,0x20);	//SRB1
-    while(ADS_REG(RREG|MISC1,0X00) != 0x20){
-        ADS_REG(WREG|MISC1,0x20);	//SRB1
+    
+    while(ads1299_read_reg(RREG|MISC1) != 0x20){
+        ads1299_write_reg(WREG|MISC1,0x20);	//SRB1
     };
     
     ADS_REG(WREG|CONFIG1,0x96);	//  250Hz 0x96;500hz 0x95;1k 0x94;2k 0x93;4k 0x92;8k 0x91;16k  0x90;
-    while(ADS_REG(RREG|CONFIG1,0X00) != 0x96){
-        ADS_REG(WREG|CONFIG1,0x96);	//amplified x1
+    while(ads1299_read_reg(RREG|CONFIG1) != 0x96){
+        ads1299_write_reg(WREG|CONFIG1,0x96);	//amplified x1
     };
 //    ADS_REG(WREG|CONFIG2,0xD0);	//测试信号内部产生，频率为f/(2^21)
 
-    while(ADS_REG(RREG|CONFIG2,0X00) != 0xC0){
-        ADS_REG(WREG|CONFIG2,0xC0);	//amplified x1
+    while(ads1299_read_reg(RREG|CONFIG2) != 0xC0){
+        ads1299_write_reg(WREG|CONFIG2,0xC0);	//amplified x1
     };
     
 //各通道配置    
-    while(ADS_REG(RREG|CH1SET,0X00) != 0x60){
-        ADS_REG(WREG|CH1SET,0X60);	//off
+    while(ads1299_read_reg(RREG|CH1SET) != 0x60){
+        ads1299_write_reg(WREG|CH1SET,0X60);	//off
     };    
-    while(ADS_REG(RREG|CH2SET,0X00) != 0x80){
-        ADS_REG(WREG|CH2SET,0X80);	//on
+    while(ads1299_read_reg(RREG|CH2SET) != 0x80){
+        ads1299_write_reg(WREG|CH2SET,0X80);	//on
     };   
-    while(ADS_REG(RREG|CH3SET,0X00) != 0x80){
-        ADS_REG(WREG|CH3SET,0X80);	//on
+    while(ads1299_read_reg(RREG|CH3SET) != 0x80){
+        ads1299_write_reg(WREG|CH3SET,0X80);	//on
     };
-    while(ADS_REG(RREG|CH4SET,0X00) != 0x60){
-        ADS_REG(WREG|CH4SET,0X60);	//off
+    while(ads1299_read_reg(RREG|CH4SET) != 0x60){
+        ads1299_write_reg(WREG|CH4SET,0X60);	//off
     };    
-    while(ADS_REG(RREG|CH5SET,0X00) != 0x80){
-        ADS_REG(WREG|CH5SET,0X80);	//off
+    while(ads1299_read_reg(RREG|CH5SET) != 0x80){
+        ads1299_write_reg(WREG|CH5SET,0X80);	//off
     };   
-    while(ADS_REG(RREG|CH6SET,0X00) != 0x80){
-        ADS_REG(WREG|CH6SET,0X80);	//off
+    while(ads1299_read_reg(RREG|CH6SET) != 0x80){
+        ads1299_write_reg(WREG|CH6SET,0X80);	//off
     };
-    while(ADS_REG(RREG|CH7SET,0X00) != 0x80){
-        ADS_REG(WREG|CH7SET,0X80);	//off
+    while(ads1299_read_reg(RREG|CH7SET) != 0x80){
+        ads1299_write_reg(WREG|CH7SET,0X80);	//off
     };   
-    while(ADS_REG(RREG|CH8SET,0X00) != 0x80){
-        ADS_REG(WREG|CH8SET,0X80);	//off
-    };
+    while(ads1299_read_reg(RREG|CH8SET) != 0x80){
+        ads1299_write_reg(WREG|CH8SET,0X80);	//off
+    };   
+    ADS_SPI(START); //开启转换
+    delay_ms(100);
 
-    //ADS1299_CS = 1; //取消片选
 }
 /**通过SPI总线与ADS1292通信**/
 unsigned char ADS_SPI(unsigned char com)
 {
+    
+    u8 rec = 0;
 	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == 0);//检测发送寄存器是否为空，上一个数据发送完成
 	SPI_I2S_SendData(SPI1, com);//发送数据      
 	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == 0);//检测接收标志是否非空，发送完成  
-	return SPI_I2S_ReceiveData(SPI1);	//返回接收到的数据
+	rec = SPI_I2S_ReceiveData(SPI1);	//返回接收到的数据
+    ;
+    return rec;
 }
 
 void ADS_SPI_SEND(unsigned char com)
 {
+    
 	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == 0);//检测发送寄存器是否为空，上一个数据发送完成
-	SPI_I2S_SendData(SPI1, com);//发送数据      
+	SPI_I2S_SendData(SPI1, com);//发送数据     
+    ;
 }
 
 unsigned char ADS_SPI_RECV(void)
 {
-	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == 0);//检测接收标志是否非空，发送完成  
+    
+	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == 0);//检测发送寄存器是否为空，上一个数据发送完成
+    while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_RXNE) == 0);//检测接收标志是否非空，发送完成  
 	return SPI_I2S_ReceiveData(SPI1);	//返回接收到的数据
+    ;
 }
 
 /*读取72位的数据1100+LOFF_STAT[4:0]+GPIO[1:0]+13个0+2CHx24位，共9字节*/	
@@ -178,16 +244,27 @@ void ADS_Read(unsigned char *data)
 /**对ADS129x内部寄存器进行操作 **/
 unsigned char ADS_REG(unsigned char com,unsigned data)
 {
-	unsigned char i,data_return=0;
-	delay_us(1);
-	SPI1_ReadWriteByte(com);
-	delay_us(1);
-	SPI1_ReadWriteByte(0X00);
-	delay_us(1);
+	unsigned char i,data_return;
+//    ADS_SPI_SEND(com);
+//    ADS_SPI_SEND(0x00);
+//    if ((com&0x20)==0x20)//判断是否为读寄存器指令
+//	{
+//		data_return=ADS_SPI_RECV();
+//		//for(i=0;i<45;i++);	
+//	}
+//    if ((com&0x40)==0x40)
+//	{
+//		ADS_SPI_SEND(data);
+//	}
+	for (i=0;i<45;i++);
+	ADS_SPI(com);
+	for (i=0;i<45;i++);
+	ADS_SPI(0X00);
+	for (i=0;i<45;i++);
 	if ((com&0x20)==0x20)//判断是否为读寄存器指令
 	{
-		data_return=SPI1_ReadWriteByte(0X00);
-		delay_us(1);	
+		data_return=ADS_SPI(0X00);
+		//for(i=0;i<45;i++);	
 	}
 	if ((com&0x40)==0x40)
 	{
@@ -205,7 +282,7 @@ void ads_data_process()
     static uint8_t DATA_ADS[27]={0x00};
     static uint32_t HEX[8] = {0};//未转换的电压值u16 Data = 0;
     static uint8_t DATA_REC[27] = {0x00};
-    ADS1299_CS = 0;
+
     ADS_SPI (RDATA);
     
     ADS_Read(DATA_REC);
@@ -251,7 +328,7 @@ void ads_data_process()
     
 
    
-    ADS1299_CS = 1;    
+ 
 }
 
 void ads1299_reset(void)
