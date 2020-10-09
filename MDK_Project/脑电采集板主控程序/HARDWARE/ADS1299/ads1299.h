@@ -57,6 +57,5 @@ typedef struct{
 extern ads_data_t ads_data;
 void ads1299_init();
 void ads_data_process();
-void ADS_SPI_SEND(unsigned char com);
 void processChar(char character);
 #endif
