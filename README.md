@@ -4,7 +4,7 @@
 
 # 脑电放大器说明文档
 
-version：V1.0.0         author：李运环
+version：V1.0.0         author：lyh
 
 
 
